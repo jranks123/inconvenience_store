@@ -6,13 +6,13 @@ window.onload = function() {
     var firstAdClicked = false;
     const token = generateToken();
     sessionStorage.setItem('termsToken', token);
-    sessionStorage.setItem('signupToken', token); 
+    sessionStorage.setItem('signupToken', token);
     let displayedBratImages = [];
     let displayedNonBratImages = [];
 
     // Parameters for number of brat and non-brat images
     const numberOfBratImages = 6; // Total number of brat images available
-    const numberOfNonBratImages = 6; // Total number of non-brat images available
+    const numberOfNonBratImages = 9; // Total number of non-brat images available
     const initialBratImages = 3; // Number of brat images to show initially
     const initialNonBratImages = 9 - initialBratImages; // Number of non-brat images to show initially
 
