@@ -111,15 +111,19 @@ window.onload = function() {
         }
 
         img.src = imagePath;
-        img.addEventListener('click', function() {
-            if (img.dataset.isBrat === 'false') {
-                document.getElementById('errorModal').style.display = 'block'; // Show error modal if non-brat is clicked
-            } else {
-                loadNewImage(this);
-            }
-        });
+        img.removeEventListener('click', handleImageClick); // Remove previous event listener
+        img.addEventListener('click', handleImageClick);
 
         return img;
+    }
+
+    function handleImageClick(event) {
+        const img = event.target;
+        if (img.dataset.isBrat === 'false') {
+            document.getElementById('errorModal').style.display = 'block'; // Show error modal if non-brat is clicked
+        } else {
+            loadNewImage(img);
+        }
     }
 
     function loadNewImage(img) {
@@ -155,5 +159,5 @@ window.onload = function() {
         loadImages();
     });
 
-    //initializePopups(); // Initialize and display the initial popups
+    initializePopups(); // Initialize and display the initial popups
 };
