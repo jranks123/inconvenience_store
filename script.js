@@ -4,13 +4,15 @@ window.onload = function() {
     var firstPopupIndex = 0; // Start with the first popup
     var imageBasePath = 'img/'; // Base path for images
     var firstAdClicked = false;
-
+    const token = generateToken();
+    sessionStorage.setItem('termsToken', token);
+    sessionStorage.setItem('signupToken', token); 
     let displayedBratImages = [];
     let displayedNonBratImages = [];
 
     // Parameters for number of brat and non-brat images
-    const numberOfBratImages = 8; // Total number of brat images available
-    const numberOfNonBratImages = 9; // Total number of non-brat images available
+    const numberOfBratImages = 6; // Total number of brat images available
+    const numberOfNonBratImages = 6; // Total number of non-brat images available
     const initialBratImages = 3; // Number of brat images to show initially
     const initialNonBratImages = 9 - initialBratImages; // Number of non-brat images to show initially
 
@@ -140,10 +142,17 @@ window.onload = function() {
         const images = document.querySelectorAll('#imageGrid img');
         const anyBratsLeft = Array.from(images).some(img => img.dataset.isBrat === 'true');
         if (!anyBratsLeft) {
-            window.location.href = 'terms.html'; // Redirect to terms and conditions page // All brats correctly identified
+            const token = generateToken();
+            sessionStorage.setItem('termsToken', token); // Store the token in session storage
+            console.log(`terms.html?token=${token}`);
+            window.location.href = `terms.html?token=${token}`; // Redirect to terms and conditions page
         } else {
             document.getElementById('errorModal').style.display = 'block'; // Error if any brat is left
         }
+    }
+
+    function generateToken() {
+        return Math.random().toString(36).substr(2); // Generate a simple random token
     }
 
     document.getElementById('verifyButton').addEventListener('click', function() {
@@ -159,5 +168,5 @@ window.onload = function() {
         loadImages();
     });
 
-    //initializePopups(); // Initialize and display the initial popups
+    initializePopups(); // Initialize and display the initial popups
 };

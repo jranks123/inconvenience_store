@@ -10,10 +10,10 @@
     <div class="form-container">
         <h1>Enter your name to complete sign up</h1>
         <form id="signupForm">
-            <label for="firstName">First Name:</label>
+            <label for="firstName">First Name (lower case):</label>
             <input type="text" id="firstName" name="firstName" required>
 
-            <label for="lastName">Last Name:</label>
+            <label for="lastName">Last Name (upper case):</label>
             <input type="text" id="lastName" name="lastName" required>
 
             <button type="submit">Submit</button>
@@ -28,5 +28,16 @@
     </div>
 
     <script src="signup-form.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            const sessionToken = sessionStorage.getItem('signupToken');
+
+            if (!token || token !== sessionToken) {
+                window.location.href = 'index.html'; // Redirect to main page if token is invalid
+            }
+        });
+    </script>
 </body>
 </html>

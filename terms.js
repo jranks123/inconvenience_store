@@ -83,6 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    function generateToken() {
+        return Math.random().toString(36).substr(2); // Generate a simple random token
+    }
+
     document.getElementById('quizForm').addEventListener('submit', (event) => {
         event.preventDefault();
         const userAnswers = [];
@@ -98,7 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (correct) {
-            window.location.href = 'signup-form.html';
+            const token = generateToken();
+            sessionStorage.setItem('signupToken', token); // Store the token in session storage
+            window.location.href = `signup-form.html?token=${token}`;
         } else {
             document.getElementById('quizModal').style.display = 'none';
             document.getElementById('failModal').style.display = 'block';
