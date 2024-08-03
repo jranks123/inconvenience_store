@@ -8,6 +8,12 @@ window.onload = function() {
     let displayedBratImages = [];
     let displayedNonBratImages = [];
 
+    // Parameters for number of brat and non-brat images
+    const numberOfBratImages = 8; // Total number of brat images available
+    const numberOfNonBratImages = 9; // Total number of non-brat images available
+    const initialBratImages = 3; // Number of brat images to show initially
+    const initialNonBratImages = 9 - initialBratImages; // Number of non-brat images to show initially
+
     // Initialize and display the popups when the page loads
     function initializePopups() {
         showPopup(firstPopupIndex); // Show the first popup
@@ -54,17 +60,17 @@ window.onload = function() {
         let indices = Array.from(Array(9).keys());
         indices = shuffleArray(indices);
 
-        // Assign 3 random slots for brat images and 6 for non-brat images
+        // Assign initial slots for brat and non-brat images
         for (let i = 0; i < 9; i++) {
             let img = document.createElement('img');
-            if (indices[i] < 3) { // First 3 slots for brat images
+            if (indices[i] < initialBratImages) { // Assign brat images
                 img.src = `${imageBasePath}isbrat${indices[i] + 1}.png`; // Brat images
                 img.dataset.isBrat = 'true';
                 displayedBratImages.push(indices[i] + 1);
-            } else { // Remaining slots for non-brat images
-                img.src = `${imageBasePath}notbrat${indices[i] - 2}.png`; // Non-brat images
+            } else { // Assign non-brat images
+                img.src = `${imageBasePath}notbrat${indices[i] - initialBratImages + 1}.png`; // Non-brat images
                 img.dataset.isBrat = 'false';
-                displayedNonBratImages.push(indices[i] - 2);
+                displayedNonBratImages.push(indices[i] - initialBratImages + 1);
             }
             img.addEventListener('click', handleImageClick);
             imageGrid.appendChild(img);
@@ -85,17 +91,17 @@ window.onload = function() {
         let bratDecision = Math.random() < 0.33;
         let imagePath, isBrat;
 
-        if (bratDecision && displayedBratImages.length < 6) { // Assuming there are 6 brat images
+        if (bratDecision && displayedBratImages.length < numberOfBratImages) { // Assign brat images
             do {
-                isBrat = Math.floor(Math.random() * 6) + 1; // Select a brat image index
-            } while (displayedBratImages.includes(isBrat) && displayedBratImages.length < 6);
+                isBrat = Math.floor(Math.random() * numberOfBratImages) + 1; // Select a brat image index
+            } while (displayedBratImages.includes(isBrat) && displayedBratImages.length < numberOfBratImages);
             imagePath = `${imageBasePath}isbrat${isBrat}.png`;
             displayedBratImages.push(isBrat);
             img.dataset.isBrat = 'true';
-        } else if (displayedNonBratImages.length < 6) { // Ensure we haven't exhausted non-brat images
+        } else if (displayedNonBratImages.length < numberOfNonBratImages) { // Assign non-brat images
             do {
-                isBrat = Math.floor(Math.random() * 6) + 1; // Select a non-brat image index
-            } while (displayedNonBratImages.includes(isBrat) && displayedNonBratImages.length < 6);
+                isBrat = Math.floor(Math.random() * numberOfNonBratImages) + 1; // Select a non-brat image index
+            } while (displayedNonBratImages.includes(isBrat) && displayedNonBratImages.length < numberOfNonBratImages);
             imagePath = `${imageBasePath}notbrat${isBrat}.png`;
             displayedNonBratImages.push(isBrat);
             img.dataset.isBrat = 'false';
@@ -122,7 +128,7 @@ window.onload = function() {
 
     function loadNewImage(img) {
         // Check if all brat images have been displayed
-        if (displayedBratImages.length === 6) {
+        if (displayedBratImages.length === numberOfBratImages) {
             img.src = `${imageBasePath}notbrat1.png`; // Default to notbrat1.png
             img.dataset.isBrat = 'false'; // Mark it as non-brat to avoid confusion
         } else {
@@ -153,5 +159,5 @@ window.onload = function() {
         loadImages();
     });
 
-    initializePopups(); // Initialize and display the initial popups
+    //initializePopups(); // Initialize and display the initial popups
 };
