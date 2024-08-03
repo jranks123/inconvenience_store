@@ -66,13 +66,7 @@ window.onload = function() {
                 img.dataset.isBrat = 'false';
                 displayedNonBratImages.push(indices[i] - 2);
             }
-            img.addEventListener('click', function() {
-                if (img.dataset.isBrat === 'false') {
-                    document.getElementById('errorModal').style.display = 'block'; // Show error modal if non-brat is clicked
-                } else {
-                    loadNewImage(this);
-                }
-            });
+            img.addEventListener('click', handleImageClick);
             imageGrid.appendChild(img);
         }
 
@@ -127,12 +121,12 @@ window.onload = function() {
     }
 
     function loadNewImage(img) {
-        // Check if all images have been displayed and reset as needed
-        if (displayedBratImages.length === 6 && displayedNonBratImages.length === 6) {
+        // Check if all brat images have been displayed
+        if (displayedBratImages.length === 6) {
             img.src = `${imageBasePath}notbrat1.png`; // Default to notbrat1.png
             img.dataset.isBrat = 'false'; // Mark it as non-brat to avoid confusion
         } else {
-            img = assignImage(img); // Assign a new image
+            assignImage(img); // Assign a new image
         }
     }
 
@@ -140,7 +134,7 @@ window.onload = function() {
         const images = document.querySelectorAll('#imageGrid img');
         const anyBratsLeft = Array.from(images).some(img => img.dataset.isBrat === 'true');
         if (!anyBratsLeft) {
-          window.location.href = 'terms.html'; // Redirect to terms and conditions page // All brats correctly identified
+            window.location.href = 'terms.html'; // Redirect to terms and conditions page // All brats correctly identified
         } else {
             document.getElementById('errorModal').style.display = 'block'; // Error if any brat is left
         }
