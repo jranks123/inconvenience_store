@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="congrats-container">
+        <h1 id="congratsMessage"></h1>
+    </div>
+
+    <div class="confetti"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const firstName = urlParams.get('firstName');
+            const lastName = urlParams.get('lastName');
+
+            const congratsMessage = document.getElementById('congratsMessage');
+            congratsMessage.textContent = `Congratulations ${firstName} ${lastName}, you have completed the online steps of sign up. Please show this screen to a member of staff to get the next form.`;
+        });
+
+        // Confetti animation
+        const confettiContainer = document.querySelector('.confetti');
+
+        for (let i = 0; i < 100; i++) {
+            const confettiPiece = document.createElement('div');
+            confettiPiece.classList.add('confetti-piece');
+            confettiPiece.style.left = `${Math.random() * 100}%`;
+            confettiPiece.style.animationDelay = `${Math.random() * 5}s`;
+            confettiPiece.style.animationDuration = `${Math.random() * 2 + 3}s`;
+            confettiContainer.appendChild(confettiPiece);
+        }
+    </script>
+</body>
+</html>

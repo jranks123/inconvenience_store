@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (correct) {
-            window.location.href = 'you-won.html';
+            window.location.href = 'signup-form.html';
         } else {
             document.getElementById('quizModal').style.display = 'none';
             document.getElementById('failModal').style.display = 'block';
