@@ -138,25 +138,6 @@ body {
     outline: none; /* Removes the outline to keep styling clean */
 }
 
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    z-index: 1000; /* Ensure it is on top */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* Positioning */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be less or more depending on preference */
-    max-width: 600px;
-}
 
 .image-grid {
     display: grid;
@@ -175,9 +156,76 @@ body {
 .image-grid img.selected {
     border-color: blue;
 }
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black with opacity */
+}
 
+/* Modal content box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Maximum width for larger screens */
+    border-radius: 10px;
+    text-align: center; /* Center text inside modal */
+}
+
+/* Error Modal specific styles */
+#errorModal .modal-content {
+    margin: 10% auto; /* Adjust to ensure it appears within the viewport */
+}
+
+/* Styles for the quiz modal */
+#quizModal .modal-content {
+    margin: 5% auto; /* Adjust to ensure it appears within the viewport */
+}
+
+/* Button styles */
 button {
-    margin-top: 20px;
     padding: 10px 20px;
+    margin: 10px;
     font-size: 16px;
+    cursor: pointer;
+}
+
+#verifyButton {
+    display: block;
+    margin: 20px auto;
+}
+
+#acceptTermsButton {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Terms and conditions page styles */
+.terms-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.terms-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.terms-container p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 1em;
+    color: #333;
 }

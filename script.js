@@ -140,7 +140,7 @@ window.onload = function() {
         const images = document.querySelectorAll('#imageGrid img');
         const anyBratsLeft = Array.from(images).some(img => img.dataset.isBrat === 'true');
         if (!anyBratsLeft) {
-            document.getElementById('captchaModal').style.display = 'none'; // All brats correctly identified
+          window.location.href = 'terms.html'; // Redirect to terms and conditions page // All brats correctly identified
         } else {
             document.getElementById('errorModal').style.display = 'block'; // Error if any brat is left
         }
@@ -159,5 +159,5 @@ window.onload = function() {
         loadImages();
     });
 
-    initializePopups(); // Initialize and display the initial popups
+    //initializePopups(); // Initialize and display the initial popups
 };
