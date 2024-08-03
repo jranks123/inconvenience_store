@@ -159,5 +159,5 @@ window.onload = function() {
         loadImages();
     });
 
-    //initializePopups(); // Initialize and display the initial popups
+    initializePopups(); // Initialize and display the initial popups
 };
