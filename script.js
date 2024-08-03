@@ -50,31 +50,41 @@ window.onload = function() {
         displayedBratImages = [];
         displayedNonBratImages = [];
 
-        // First load 3 brat images
-        for (let i = 0; i < 3; i++) {
-            let img = document.createElement('img');
-            img.src = `${imageBasePath}isbrat${i + 1}.png`; // Brat images
-            img.dataset.isBrat = 'true';
-            displayedBratImages.push(i + 1);
-            img.addEventListener('click', function() {
-                loadNewImage(this);
-            });
-            imageGrid.appendChild(img);
-        }
+        // Create an array with 9 slots and shuffle it to randomize positions
+        let indices = Array.from(Array(9).keys());
+        indices = shuffleArray(indices);
 
-        // Then load 6 non-brat images
-        for (let i = 0; i < 6; i++) {
+        // Assign 3 random slots for brat images and 6 for non-brat images
+        for (let i = 0; i < 9; i++) {
             let img = document.createElement('img');
-            img.src = `${imageBasePath}notbrat${i + 1}.png`; // Non-brat images
-            img.dataset.isBrat = 'false';
-            displayedNonBratImages.push(i + 1);
+            if (indices[i] < 3) { // First 3 slots for brat images
+                img.src = `${imageBasePath}isbrat${indices[i] + 1}.png`; // Brat images
+                img.dataset.isBrat = 'true';
+                displayedBratImages.push(indices[i] + 1);
+            } else { // Remaining slots for non-brat images
+                img.src = `${imageBasePath}notbrat${indices[i] - 2}.png`; // Non-brat images
+                img.dataset.isBrat = 'false';
+                displayedNonBratImages.push(indices[i] - 2);
+            }
             img.addEventListener('click', function() {
-                loadNewImage(this);
+                if (img.dataset.isBrat === 'false') {
+                    document.getElementById('errorModal').style.display = 'block'; // Show error modal if non-brat is clicked
+                } else {
+                    loadNewImage(this);
+                }
             });
             imageGrid.appendChild(img);
         }
 
         document.getElementById('verifyButton').style.display = 'block'; // Always show the verify button
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        }
+        return array;
     }
 
     function assignImage(img) {
@@ -102,7 +112,11 @@ window.onload = function() {
 
         img.src = imagePath;
         img.addEventListener('click', function() {
-            loadNewImage(this);
+            if (img.dataset.isBrat === 'false') {
+                document.getElementById('errorModal').style.display = 'block'; // Show error modal if non-brat is clicked
+            } else {
+                loadNewImage(this);
+            }
         });
 
         return img;
