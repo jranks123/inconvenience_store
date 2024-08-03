@@ -7,21 +7,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#info">Info</a></li>
-                <li><a href="#donate">Donate</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-      
+  <button id="signupButton">Sign Up</button>
+
     <footer>
         <p>&copy; 2024 Basic Website. All rights reserved.</p>
     </footer>
+
+    <div id="captchaModal" class="modal">
+        <div class="modal-content">
+            <p>Please verify that you are a human by selecting all images that are brat until there are none left.</p>
+            <div id="imageGrid" class="image-grid">
+                <!-- Images will be loaded here by JavaScript -->
+            </div>
+            <button id="verifyButton" style="display: none;">Verify</button>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <p>Sorry, we could not verify that you are human. Please try again.</p>
+            <button id="continueButton">Continue</button>
+        </div>
+    </div>
 
     <!-- Popup 1 -->
     <div id="popup1" class="popup">
