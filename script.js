@@ -31,6 +31,26 @@ window.onload = function() {
     const numberOfNonBratImages = 9; // Total number of non-brat images available
     const initialBratImages = 3; // Number of brat images to show initially
     const initialNonBratImages = 9 - initialBratImages; // Number of non-brat images to show initially
+    const errorModal = document.getElementById('errorModal');
+    const errorMessage = document.getElementById('errorMessage');
+
+    function showError(message) {
+        errorMessage.textContent = message;
+        errorModal.style.display = 'block';
+    }
+
+
+    const notBratDescription = [
+      "Dominic Cummings is not brat"
+      , "did u actually think Tesla was brat"
+      , "Trump is not brat. obvs."
+      , "Stevie G is not brat"
+      , "Drake is not brat"
+      , "errrr Toast is not brat"
+      , "Tier bikes are brat are you joking"
+      , "Secret Garden Party is not brat eurgh"
+      , "The Olympics are not brat. altho the logo kinda is"
+    ]
 
     function moveCloseButton(closeButton) {
         var randomPosition = closeButtonPositions[Math.floor(Math.random() * closeButtonPositions.length)];
@@ -52,9 +72,6 @@ window.onload = function() {
             closeButton.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default close action
                 clickCounts[index]++;
-                if (clickCounts[index] === 1 && popupId != 'popup1') {
-                  //  window.open(link.href, '_blank'); // Open link in a new tab on first click
-                }
                 handleCloseButtonClick(index);
             });
         });
@@ -77,7 +94,7 @@ window.onload = function() {
     }
 
     function handleCloseButtonClick(index) {
-        if (index === 0 && clickCounts[index] === 1 && !firstAdClicked) {
+        if (index === 2 && clickCounts[index] === 1 && !firstAdClicked) {
             firstAdClicked = true; // Set the flag that the first ad has been clicked
             window.location.href = "mailto:boss@example.com?subject=Not%20feeling%20great&body=Dear%20[your bosses name],%0AI'm%20just%20emailing%20you%20to%20let%20you%20know%20that%20I've%20got%20a%20bit%20of%20a%20head%20cold%20and%20it's%20looking%20like%20I%20might%20not%20be%20able%20to%20make%20it%20in%20on%20Monday.%20It%20really%20seems%20to%20be%20going%20round%20at%20the%20moment!%20I'm%20going%20to%20rest%20up%20-%20hopefully%20see%20you%20Tuesday.%0ABest,%0A[your name]";
             return; // Exit the function to prevent further actions
@@ -113,6 +130,8 @@ window.onload = function() {
         let indices = Array.from(Array(9).keys());
         indices = shuffleArray(indices);
 
+
+
         // Assign initial slots for brat and non-brat images
         for (let i = 0; i < 9; i++) {
             let img = document.createElement('img');
@@ -123,6 +142,7 @@ window.onload = function() {
             } else { // Assign non-brat images
                 img.src = `${imageBasePath}notbrat${indices[i] - initialBratImages + 1}.png`; // Non-brat images
                 img.dataset.isBrat = 'false';
+                img.dataset.errorMessage = notBratDescription[indices[i] - initialBratImages]
                 displayedNonBratImages.push(indices[i] - initialBratImages + 1);
             }
             img.addEventListener('click', handleImageClick);
@@ -158,6 +178,7 @@ window.onload = function() {
             imagePath = `${imageBasePath}notbrat${isBrat}.png`;
             displayedNonBratImages.push(isBrat);
             img.dataset.isBrat = 'false';
+            img.dataset.errorMessage = notBratDescription[isBrat];
         } else { // Fallback if all images have been displayed
             imagePath = `${imageBasePath}notbrat1.png`;
             img.dataset.isBrat = 'false';
@@ -173,9 +194,20 @@ window.onload = function() {
     function handleImageClick(event) {
         const img = event.target;
         if (img.dataset.isBrat === 'false') {
-            document.getElementById('errorModal').style.display = 'block'; // Show error modal if non-brat is clicked
+          showError(img.dataset.errorMessage);
         } else {
-            loadNewImage(img);
+
+          img.classList.add('image-green');
+          img.classList.add('fade-out');
+
+
+            // Wait for the animation to complete before replacing the image
+            setTimeout(() => {
+                loadNewImage(img);
+                img.classList.remove('fade-out');
+                img.classList.remove('image-green');
+            }, 1000); // 1s duration for the fade-out animation
+
         }
     }
 
