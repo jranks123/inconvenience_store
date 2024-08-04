@@ -230,7 +230,7 @@ window.onload = function() {
             console.log(`terms.html?token=${token}`);
             window.location.href = `terms.html?token=${token}`; // Redirect to terms and conditions page
         } else {
-            showError("There was still brat. Please try again (unless you are one of those fknnn basic binary b bots in which case fuck offffff)") // Error if any brat is left
+            showError("There was still brat, which you'd know if you weren't a computer program running on loop trying to destroy our servers. Hope you get a virus. You got algo we got rhythm. Goodbye.") // Error if any brat is left
         }
     }
 
