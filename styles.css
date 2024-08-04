@@ -239,6 +239,11 @@ body {
     margin: 5% auto; /* Adjust to ensure it appears within the viewport */
 }
 
+.tiny {
+  font-size: 4px;
+  text-align: center;
+}
+
 /* Button styles */
 button {
     padding: 10px 20px;
