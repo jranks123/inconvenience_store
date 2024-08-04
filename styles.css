@@ -362,6 +362,45 @@ button {
     animation: fall linear infinite;
 }
 
+#acceptTermsButton {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Terms and conditions page styles */
+.terms-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#additionalFeedbackModal .modal-content {
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Adjust width to ensure it fits within the viewport */
+    max-width: 600px;
+    max-height: 80vh; /* Limit height to 80% of viewport height */
+    overflow: auto; /* Enable scrolling if content overflows */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.terms-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.terms-container p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 1em;
+    color: #333;
+}
+
 @keyframes fall {
     to {
         transform: translateY(100vh) rotate(360deg);

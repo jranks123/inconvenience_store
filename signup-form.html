@@ -38,6 +38,25 @@
         </div>
     </div>
 
+      <!-- Survey Modal -->
+  <div id="surveyModal" class="modal">
+      <div class="modal-content">
+          <p>How are you enjoying our site? Your feedback is important to us.</p>
+          <input type="range" id="feedbackSlider" min="1" max="5" value="3">
+          <span id="feedbackValue">3*</span>
+          <button id="submitFeedbackButton">Submit</button>
+      </div>
+  </div>
+
+  <!-- Additional Feedback Modal -->
+  <div id="additionalFeedbackModal" class="modal">
+      <div class="modal-content">
+          <p>Can you give us more feedback on why this hasn't been a 5* experience?</p>
+          <textarea id="additionalFeedback" rows="4" cols="50"></textarea>
+          <button id="submitAdditionalFeedbackButton">Submit</button>
+      </div>
+  </div>
+
     <script src="signup-form.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

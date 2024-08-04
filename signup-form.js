@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerBar = document.getElementById('timerBar');
     let totalTime = 3 * 60; // Total time in seconds (5 minutes)
     let elapsed = 0;
+    const surveyModal = document.getElementById('surveyModal');
+    const feedbackSlider = document.getElementById('feedbackSlider');
+    const feedbackValue = document.getElementById('feedbackValue');
+    const submitFeedbackButton = document.getElementById('submitFeedbackButton');
+    const additionalFeedbackModal = document.getElementById('additionalFeedbackModal');
+    const additionalFeedback = document.getElementById('additionalFeedback');
+    const submitAdditionalFeedbackButton = document.getElementById('submitAdditionalFeedbackButton');
+
 
     function updateTimer() {
         elapsed += 0.25; // Increment elapsed time by 0.25 seconds (quarter of a second)
@@ -21,7 +29,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-  setInterval(updateTimer, 250);
+    setInterval(updateTimer, 250);
+
+    setTimeout(() => {
+      surveyModal.style.display = 'block';
+    }, 5000);
+
+    feedbackSlider.addEventListener('input', () => {
+        feedbackValue.textContent = `${feedbackSlider.value}*`;
+    });
+
+    submitFeedbackButton.addEventListener('click', () => {
+        if (feedbackSlider.value !== '5') {
+            surveyModal.style.display = 'none';
+            additionalFeedbackModal.style.display = 'block';
+        } else {
+            surveyModal.style.display = 'none';
+        }
+    });
+
+    submitAdditionalFeedbackButton.addEventListener('click', () => {
+      if (additionalFeedback.value.trim() === '') {
+          additionalFeedbackModal.style.display = 'none';
+          showError('Your feedback is important to us. If you won\'t give us 5 stars, please have the common decency to tell us why. Pah');
+      } else {
+          additionalFeedbackModal.style.display = 'none';
+      }
+    });
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
