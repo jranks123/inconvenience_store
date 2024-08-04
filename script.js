@@ -27,7 +27,7 @@ window.onload = function() {
     let clickCounts = new Array(popups.length).fill(0); // Track clicks on close buttons
 
     // Parameters for number of brat and non-brat images
-    const numberOfBratImages = 8; // Total number of brat images available
+    const numberOfBratImages = 9; // Total number of brat images available
     const numberOfNonBratImages = 9; // Total number of non-brat images available
     const initialBratImages = 3; // Number of brat images to show initially
     const initialNonBratImages = 9 - initialBratImages; // Number of non-brat images to show initially
@@ -41,15 +41,15 @@ window.onload = function() {
 
 
     const notBratDescription = [
-      "Kier is not brat altho he looks like an old dnb DJ from the 90s in this pic which is sort of brat adjacent"
+      "Kier is not brat altho he looks like an old dnb DJ from the 90s in this pic amirite"
       , "did u actually think Tesla was brat. u are defo a robot"
       , "Trump is not brat. obvs. nice try, lamebot"
       , "Stevie G is not brat. ur defo not a human. ynwa"
       , "Drake is not brat, you are either a robot or you need to have a deep think about ur life choices"
       , "errrr Toast is not brat. you might be a robot. not worth the risk."
       , "Tier bikes are brat are you joking. that shade of green erughhhhhhh"
-      , "Secret Garden Party is not even close to brat"
       , "The Olympics are not brat. altho the logo kinda is. still, ur probs a robot"
+      , "Kim will say she's brat but she's NOT. THIS SHOWS YOU ARE A ROBOT NOW GO BACK TO ROBOT SCHOOL"
     ]
 
     function moveCloseButton(closeButton) {
