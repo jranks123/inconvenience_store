@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const questions = [
         "Which of these won't you see or be covered with inside the venue?",
         "What can't be worn inside?",
-        "How many years has the Inconvenience Store been at Boomtown?"
+        "What number Boomtown is this year for the Inconvenience Store?"
     ];
 
     const correctAnswers = [
