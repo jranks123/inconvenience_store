@@ -1,26 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sillyClauses = [
-        "You must hum a tune whilst reading these clauses. We will be listening.",
+        "BY ENTERING THIS STORE, YOU MAY COME IN CLOSE CONTACT WITH NUTS AND EVEN NUTTIER PERFORMERS. LIQUIDS, SPRAYS, GELS, GLUE AND VARIOUS FOOD ITEMS WILL BE USED THROUGHOUT THE WEEKEND.",
         "No non-Inconvenience store bucket hats can be worn inside.",
-        "You are required to dance for 5 minutes after reading these terms."
+        "You must know that we have been at boomtown since 2015"
     ];
 
     const questions = [
-        "What must you do while reading these terms?",
+        "Which of these won't you see or be covered with inside the venue?",
         "What can't be worn inside?",
-        "What must you do for 5 minutes after reading these terms?"
+        "How many years has the Inconvenience Store been at Boomtown?"        
     ];
 
     const correctAnswers = [
-        "hum a tune",
+        "animal products",
         "non-Inconvenience store bucket hats",
-        "dance"
+        "10"
     ];
 
     const wrongAnswers = [
-        ["apply suncream", "close one eye"],
-        ["birthday suit", "boot-cut jeans"],
-        ["pontificate", "squat"]
+        ["liquids", "sprays", "gels", "glue", "various food items"],
+        ["birthday suit", "boot-cut jeans", "football shirts"],
+        ["5", "6", "7", "8", "9", "11", "12"]
     ];
 
     // Function to shuffle an array
