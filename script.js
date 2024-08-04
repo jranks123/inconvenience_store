@@ -28,7 +28,7 @@ window.onload = function() {
 
     // Parameters for number of brat and non-brat images
     const numberOfBratImages = 13; // Total number of brat images available
-    const numberOfNonBratImages = 9; // Total number of non-brat images available
+    const numberOfNonBratImages = 10; // Total number of non-brat images available
     const initialBratImages = 3; // Number of brat images to show initially
     const initialNonBratImages = 9 - initialBratImages; // Number of non-brat images to show initially
     const errorModal = document.getElementById('errorModal');
@@ -51,6 +51,7 @@ window.onload = function() {
       , "The Olympics are not brat. altho the logo kinda is. still, ur probs a robot"
       , "did u actually think Tesla was brat. u are defo a robot"
       , "Some people think Paris is brat. OR SHOULD I SAY SOME ROBOTS THINK PARIS IS BRAT. not this time you binary b"
+      , "the green is close but definitely not. are you one of those bots that keeps trying to DDOS us????"
     ]
 
     function moveCloseButton(closeButton) {
