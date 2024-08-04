@@ -41,15 +41,15 @@ window.onload = function() {
 
 
     const notBratDescription = [
-      "Dominic Cummings is not brat"
-      , "did u actually think Tesla was brat"
-      , "Trump is not brat. obvs."
-      , "Stevie G is not brat"
-      , "Drake is not brat"
-      , "errrr Toast is not brat"
-      , "Tier bikes are brat are you joking"
-      , "Secret Garden Party is not brat eurgh"
-      , "The Olympics are not brat. altho the logo kinda is"
+      "Kier is not brat altho he looks like an old dnb DJ from the 90s in this pic which is sort of brat adjacent"
+      , "did u actually think Tesla was brat. u are defo a robot"
+      , "Trump is not brat. obvs. nice try, lamebot"
+      , "Stevie G is not brat. ur defo not a human. ynwa"
+      , "Drake is not brat, you are either a robot or you need to have a deep think about ur life choices"
+      , "errrr Toast is not brat. you might be a robot. not worth the risk."
+      , "Tier bikes are brat are you joking. that shade of green erughhhhhhh"
+      , "Secret Garden Party is not even close to brat"
+      , "The Olympics are not brat. altho the logo kinda is. still, ur probs a robot"
     ]
 
     function moveCloseButton(closeButton) {
