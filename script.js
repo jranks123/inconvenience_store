@@ -5,6 +5,7 @@ window.onload = function() {
         'close-top-left', 'close-bottom-right', 'close-bottom-center',
         'close-top-center', 'close-left-center', 'close-right-center'
     ];
+    const popsound = document.getElementById('popsound');
 
     if (!localStorage.getItem('startTime')) {
         localStorage.setItem('startTime', Date.now());
@@ -61,10 +62,19 @@ window.onload = function() {
     }
 
     function showPopup(index) {
+      setTimeout(() => {
+        try {
+          popsound.play();
+        }
+        catch(err) {
+          console.log('user had not interacted with screen yet');
+        }
         var popup = document.getElementById(popups[index]);
         var closeButton = popup.querySelector('.close-btn');
         moveCloseButton(closeButton); // Initial random position for close button
         popup.style.display = 'block'; // Show the popup
+      }, 3000);
+
     }
 
     function handleCloseButtonClick(index) {
@@ -216,7 +226,7 @@ window.onload = function() {
                                   window.performance.navigation.type === 2 );
 
       if ( historyTraversal ) {
-        // Handle page restore.        
+        // Handle page restore.
         window.location.reload();
       }
     });
