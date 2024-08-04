@@ -180,7 +180,7 @@ window.onload = function() {
             imagePath = `${imageBasePath}notbrat${isBrat}.png`;
             displayedNonBratImages.push(isBrat);
             img.dataset.isBrat = 'false';
-            img.dataset.errorMessage = notBratDescription[isBrat];
+            img.dataset.errorMessage = notBratDescription[isBrat-1];
         } else { // Fallback if all images have been displayed
             imagePath = `${imageBasePath}notbrat1.png`;
             img.dataset.isBrat = 'false';
