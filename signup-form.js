@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitAdditionalFeedbackButton.addEventListener('click', () => {
       if (additionalFeedback.value.trim() === '') {
           additionalFeedbackModal.style.display = 'none';
-          showError('Your feedback is important to us. If you won\'t give us 5 stars, please have the common decency to tell us why. Pah');
+          showError('We are so sorry that you didn\'t think giving us written feedback was worth your precious time. You must be really important. Maybe try again when you\'ve got capacity to take this seriously.');
       } else {
           additionalFeedbackModal.style.display = 'none';
       }
