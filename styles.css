@@ -357,7 +357,7 @@ button {
     animation: fall linear infinite;
 }
 
-.confetti-piece {
+.confetti-piece-brat {
     position: absolute;
     width: 10px;
     height: 10px;
@@ -428,4 +428,31 @@ button {
 
 .fade-out {
     animation: fadeOutToGreen 0.5s forwards; /* 1s duration, forwards to keep the final state */
+}
+
+/* CSS for flashing text */
+@keyframes flash {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+.flashing-text {
+    animation: flash 2s infinite;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fading-text {
+    animation: fade 30s forwards;
 }

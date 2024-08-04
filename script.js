@@ -44,17 +44,17 @@ window.onload = function() {
 
 
     const notBratDescription = [
-      "Kier is not brat altho he looks like an old dnb DJ from the 90s in this pic amirite"
+      "Kier is not brat altho he looks like an old dnb DJ from the 90s in this pic amirite??"
       , "Kim will say she's brat but she's NOT. THIS SHOWS YOU ARE A ROBOT NOW GO BACK TO ROBOT SCHOOL"
-      , "Trump is not brat. obvs. nice try, lamebot"
+      , "Trump is not brat."
       , "Stevie G is not brat. ur defo not a human. ynwa"
       , "Drake is not brat, you are either a robot or you need to have a deep think about ur life choices"
       , "errrr Toast is not brat. you might be a robot. not worth the risk."
       , "Tier bikes are brat are you joking. that shade of green erughhhhhhh"
-      , "The Olympics are not brat. altho the logo kinda is. still, ur probs a robot"
+      , "The Olympics are not brat. altho the logo kinda is"
       , "did u actually think Tesla was brat. u are defo a robot"
       , "Some people think Paris is brat. OR SHOULD I SAY SOME ROBOTS THINK PARIS IS BRAT. not this time you binary b"
-      , "the green is close but definitely not. are you one of those bots that keeps trying to DDOS us????"
+      , "the green is close but DEFINITELY not. apart from their own brand summer energy drink weirdly"
     ]
 
     function moveCloseButton(closeButton) {
@@ -248,7 +248,7 @@ window.onload = function() {
 
             for (let i = 0; i < 100; i++) {
                 const confettiPiece = document.createElement('div');
-                confettiPiece.classList.add('confetti-piece');
+                confettiPiece.classList.add('confetti-piece-brat');
                 confettiPiece.style.left = `${Math.random() * 100}%`;
                 confettiPiece.style.animationDelay = `${Math.random() * 5}s`;
                 confettiPiece.style.animationDuration = `${Math.random() * 2 + 3}s`;

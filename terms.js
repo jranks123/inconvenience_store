@@ -38,14 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const termsContent = `
-        <h1>TO CONTINUE PLEASE READ AND ACCEPT OUT TERMS AND CONDITIONS</h1>
+        <h1 class="flashing-text">TO CONTINUE PLEASE READ AND ACCEPT OUR TERMS AND CONDITIONS</h1>
         <h2>Terms and conditions</h2>
-        <p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Inconvenience Store's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.</p>
-        <p>The term 'Inconvenience Store' or 'us' or 'we' refers to the owner of the website whose registered office is Inconvenience Store, Letsbe Avenue, Boomtown. Our company registration number is 3498486993. The term 'you' refers to the user or viewer of our website.</p>
+        <p class="fading-text">Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Inconvenience Store's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.</p>
+        <p class="fading-text">The term 'Inconvenience Store' or 'us' or 'we' refers to the owner of the website whose registered office is Inconvenience Store, Letsbe Avenue, Boomtown. Our company registration number is 3498486993. The term 'you' refers to the user or viewer of our website.</p>
 
         <h2>Terms of Use</h2>
         <p>The use of this website is subject to the following terms of use:</p>
-        <ul>
+        <ul class="fading-text">
             <li>${sillyClauses[2]}</li>
             <li>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</li>
             <li>This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties: .</li>
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li>${sillyClauses[1]}</li>
         </ul>
 
-        <ul>
+        <ul class="fading-text">
             <li>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</li>
             <li>All trade marks reproduced in this website which are not the property of, or licensed to, the operator are acknowledged on the website.</li>
             <li>Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offence.</li>
