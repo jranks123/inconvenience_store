@@ -11,22 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const questions = [
         "Which of these won't you see or be covered with inside the venue?",
         "What can't be worn inside?",
-        "How many years has the Inconvenience Store been at Boomtown?",
-        "Are you feeling lucky?"
+        "How many years has the Inconvenience Store been at Boomtown?"
     ];
 
     const correctAnswers = [
         "animal products",
         "non-Inconvenience store bucket hats",
-        "10",
-        "yes"
+        "10"
     ];
 
     const wrongAnswers = [
         ["liquids", "sprays", "gels", "glue", "various food items"],
         ["birthday suit", "boot-cut jeans", "football shirts"],
-        ["5", "6", "7", "8", "9", "11", "12"],
-        ["no"]
+        ["5", "6", "7", "8", "9", "11", "12"]
     ];
 
     // Function to shuffle an array
