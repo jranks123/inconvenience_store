@@ -140,27 +140,37 @@ body {
 
 #signupButton {
     position: fixed; /* Fixes the button to a position relative to the viewport */
-    bottom: 0; /* Aligns it at the bottom */
+    bottom: 20px; /* Aligns it slightly above the bottom */
     left: 50%; /* Center it horizontally */
     transform: translateX(-50%); /* Correct centering by shifting it back by half its width */
     width: 80%; /* The button takes up 80% of the viewport width */
     height: 50px; /* Sets a fixed height for the button */
-    background-color: #007BFF; /* Sets a blue background color */
-    color: white; /* Sets the text color to white */
-    font-size: 16px; /* Sets the font size */
+    background-color: #28a745; /* Green background color */
+    color: white; /* White text color */
+    font-family: 'Impact', 'Arial Black', sans-serif; /* Set the font family to Impact or Arial Black */
+    font-weight: bold; /* Make the text bold */
+    font-size: 18px; /* Larger font size */
     border: none; /* Removes the border */
-    border-radius: 5px; /* Optional: rounds the corners */
+    border-radius: 5px; /* Rounds the corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
     cursor: pointer; /* Changes the mouse cursor to a pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
 }
 
 /* Additional styling to improve touch interaction on mobile devices */
 #signupButton:hover {
-    background-color: #0056b3; /* Darker shade on hover for better user feedback */
+    background-color: #218838; /* Darker shade on hover for better user feedback */
+    transform: translateX(-50%) translateY(-2px); /* Lift button on hover */
 }
 
-/* Ensuring the button text is easily readable */
+#signupButton:active {
+    background-color: #1e7e34; /* Even darker shade on click */
+    transform: translateX(-50%) translateY(0); /* Reset button position on click */
+}
+
 #signupButton:focus {
     outline: none; /* Removes the outline to keep styling clean */
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Adds a custom focus outline */
 }
 
 .image-grid {
