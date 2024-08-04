@@ -1,9 +1,8 @@
 window.onload = function() {
     var popups = ['popup1', 'popup2', 'popup3'];
     var closeButtonPositions = [
-        'close-top-right', 'close-bottom-left', 'close-center',
-        'close-top-left', 'close-bottom-right', 'close-bottom-center',
-        'close-top-center', 'close-left-center', 'close-right-center'
+        'close-top-right', 'close-bottom-left',
+        'close-top-left', 'close-bottom-right'
     ];
     const popsound = document.getElementById('popsound');
 
