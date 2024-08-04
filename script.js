@@ -1,5 +1,5 @@
 window.onload = function() {
-    var popups = ['popup1', 'popup2', 'popup3', 'popup4', 'popup5'];
+    var popups = ['popup1', 'popup2', 'popup3'];
     var closeButtonPositions = [
         'close-top-right', 'close-bottom-left', 'close-center',
         'close-top-left', 'close-bottom-right', 'close-bottom-center',
@@ -13,7 +13,7 @@ window.onload = function() {
         localStorage.setItem('attempts', 1);
     } else {
         let attempts = parseInt(localStorage.getItem('attempts'));
-        localStorage.setItem('attempts', int(attempts) + 1);
+        localStorage.setItem('attempts', parseInt(attempts) + 1);
     }
 
     var firstPopupIndex = 0; // Start with the first popup
@@ -46,6 +46,7 @@ window.onload = function() {
             var closeButton = document.getElementById('close-btn' + (index + 1));
             var popup = document.getElementById(popupId);
             var link = popup.querySelector('a');
+            console.log(link)
             clickCounts[index] = 0; // Initialize click count
 
             closeButton.addEventListener('click', function(event) {
