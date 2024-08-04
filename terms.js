@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('acceptTermsButton').addEventListener('click', () => {
         document.getElementById('quizModal').style.display = 'block';
         backgroundMusic.play();
+        backgroundMusic.volume = 1;
 
         // Insert quiz questions
         const quizQuestionsDiv = document.getElementById('quizQuestions');
