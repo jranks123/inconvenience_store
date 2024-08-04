@@ -52,7 +52,7 @@ window.onload = function() {
             closeButton.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default close action
                 clickCounts[index]++;
-                if (clickCounts[index] === 1) {
+                if (clickCounts[index] === 1 && popupId != 'popup1') {
                     window.open(link.href, '_blank'); // Open link in a new tab on first click
                 }
                 handleCloseButtonClick(index);
