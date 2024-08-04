@@ -1,3 +1,17 @@
+.timer-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f44336; /* Red background color */
+    color: white; /* White text color */
+    text-align: center; /* Center text */
+    padding: 10px 0; /* Padding for some space */
+    font-size: 18px; /* Larger font size */
+    font-family: 'Impact', 'Arial Black', sans-serif; /* Font family matching the style */
+    z-index: 10000; /* High z-index to ensure it stays on top */
+}
+
 /* General Popup Styling */
 .popup {
     display: none; /* Hidden by default */

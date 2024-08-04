@@ -3,6 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorModal = document.getElementById('errorModal');
     const errorMessage = document.getElementById('errorMessage');
     const errorContinueButton = document.getElementById('errorContinueButton');
+    const timerBar = document.getElementById('timerBar');
+    let totalTime = 3 * 60; // Total time in seconds (5 minutes)
+    let elapsed = 0;
+
+    function updateTimer() {
+        elapsed += 0.25; // Increment elapsed time by 0.25 seconds (quarter of a second)
+        let remainingTime = totalTime - Math.floor(elapsed * 4); // Countdown at 4x speed
+        if (remainingTime <= 0) {
+            timerBar.textContent = "Time's up!";
+            showError('You ran out of time');
+            // Optionally, you can handle form timeout here
+        } else {
+            let minutes = Math.floor(remainingTime / 60);
+            let seconds = remainingTime % 60;
+            timerBar.textContent = `You have ${minutes}:${seconds < 10 ? '0' : ''}${seconds} minutes to fill out this form.`;
+        }
+    }
+
+  setInterval(updateTimer, 250);
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
