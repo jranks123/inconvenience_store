@@ -205,7 +205,7 @@ window.onload = function() {
     function handleImageClick(event) {
         const img = event.target;
         if (img.dataset.isBrat === 'false') {
-          logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Brat remaining' });
+          logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on non-brat', errorMessage: img.errorMessage });
           showError(img.dataset.errorMessage);
         } else {
 
@@ -241,7 +241,7 @@ window.onload = function() {
             console.log(`terms.html?token=${token}`);
             window.location.href = `terms.html?token=${token}`; // Redirect to terms and conditions page
         } else {
-            logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on brat' });
+            logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Stil brats left' });
             showError("There was still brat, which you'd know if you weren't a computer program running on loop trying to destroy our servers. Hope you get a virus. You got algo we got rhythm. Goodbye.") // Error if any brat is left
         }
     }
