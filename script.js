@@ -197,16 +197,14 @@ window.onload = function() {
           showError(img.dataset.errorMessage);
         } else {
 
-          img.classList.add('image-green');
           img.classList.add('fade-out');
 
 
             // Wait for the animation to complete before replacing the image
             setTimeout(() => {
-                loadNewImage(img);
                 img.classList.remove('fade-out');
-                img.classList.remove('image-green');
-            }, 1000); // 1s duration for the fade-out animation
+                loadNewImage(img);
+            }, 500); // 1s duration for the fade-out animation
 
         }
     }
