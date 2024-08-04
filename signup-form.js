@@ -76,15 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        let attempts = parseInt(localStorage.getItem('attempts')) || 0;
+
         const formData = {
             firstName: firstName,
             lastName: lastName,
             email: email,
             phoneNumber: phoneNumber,
             optOut: optOut,
+            attempts: attempts,
+            totalTime: Math.floor((Date.now() - parseInt(localStorage.getItem('startTime'))) / 1000) // Calculate total time in seconds
         };
 
-        fetch('https://script.google.com/macros/s/AKfycbx0Mt588DFscOPEETFsMgWMXe8Nu5fhp2SdKCOyfW_8PTOaLS9KrZf5Ggh5mo4Zcfmx6w/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbzrR-k6NN2Tev-OptRMBcIHPG6rvlAEVN4STW5nAI_0lsrl1tUPd6bjlQGPIwTy_2k--A/exec', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

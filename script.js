@@ -5,6 +5,16 @@ window.onload = function() {
         'close-top-left', 'close-bottom-right', 'close-bottom-center',
         'close-top-center', 'close-left-center', 'close-right-center'
     ];
+
+    if (!localStorage.getItem('startTime')) {
+      localStorage.setItem('startTime', Date.now());
+    }
+    if (!localStorage.getItem('attempts')) {
+        localStorage.setItem('attempts', 1);
+    } else {
+      let attempts = localStorage.getItem('attempts');
+      localStorage.setItem('attempts', attempts + 1);
+    }
     var firstPopupIndex = 0; // Start with the first popup
     var imageBasePath = 'img/'; // Base path for images
     var firstAdClicked = false;
