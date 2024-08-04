@@ -1,3 +1,5 @@
+logEvent('PageLoad', { pageName: 'congratulations' });
+
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const firstName = urlParams.get('firstName');
@@ -9,5 +11,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const congratulationsMessage = document.getElementById('congratsMessage');
     congratulationsMessage.textContent = `Congratulations ${firstName} ${lastName}, you have completed the online steps of sign up in ${attempts} attempts over ${totalTime} seconds. Please show this screen to a member of staff to get the next form.`;
-  
+
 });

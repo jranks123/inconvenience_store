@@ -1,3 +1,6 @@
+logEvent('PageLoad', { pageName: 'signupform' });
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('signupForm');
     const errorModal = document.getElementById('errorModal');
@@ -20,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let remainingTime = totalTime - Math.floor(elapsed * 4); // Countdown at 4x speed
         if (remainingTime <= 0) {
             timerBar.textContent = "Time's up!";
+            logEvent('FailedAttempt', { pageName: 'signupForm', reason: 'timeout' });
             showError('You ran out of time');
             // Optionally, you can handle form timeout here
         } else {
@@ -51,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitAdditionalFeedbackButton.addEventListener('click', () => {
       if (additionalFeedback.value.trim() === '') {
           additionalFeedbackModal.style.display = 'none';
+          logEvent('FailedAttempt', { pageName: 'signupForm', reason: 'didn\'t give feedback' });
           showError('We are so sorry that you didn\'t think giving us written feedback was worth your precious time. You must be really important. Maybe try again when you\'ve got capacity to take this seriously.');
       } else {
           additionalFeedbackModal.style.display = 'none';
@@ -67,11 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const optOut = document.getElementById('optOut').checked;
 
         if (firstName !== firstName.toLowerCase()) {
+            logEvent('FailedAttempt', { pageName: 'signupForm', reason: 'first name not lower case' });
             showError('First name must be all lower case.');
             return;
         }
 
         if (lastName !== lastName.toUpperCase()) {
+            logEvent('FailedAttempt', { pageName: 'signupForm', reason: 'last name not upper lower case' });
             showError('Last name must be all upper case.');
             return;
         }

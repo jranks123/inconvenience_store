@@ -1,4 +1,6 @@
 const backgroundMusic = document.getElementById('backgroundMusic');
+logEvent('PageLoad', { pageName: 'terms' });
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -111,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionStorage.setItem('signupToken', token); // Store the token in session storage
             window.location.href = `signup-form.html?token=${token}`;
         } else {
+            logEvent('FailedAttempt', { pageName: 'terms', reason: 'failed_quiz' });
             document.getElementById('quizModal').style.display = 'none';
             document.getElementById('failModal').style.display = 'block';
         }

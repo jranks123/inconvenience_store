@@ -1,3 +1,4 @@
+logEvent('PageLoad', { pageName: 'homepage' });
 window.onload = function() {
     var popups = ['popup1', 'popup2', 'popup3'];
     var closeButtonPositions = [
@@ -196,6 +197,7 @@ window.onload = function() {
     function handleImageClick(event) {
         const img = event.target;
         if (img.dataset.isBrat === 'false') {
+          logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Brat remaining' });
           showError(img.dataset.errorMessage);
         } else {
 
@@ -222,6 +224,7 @@ window.onload = function() {
     }
 
     function checkCompletion() {
+        logEvent('VerifyClicked', undefined);
         const images = document.querySelectorAll('#imageGrid img');
         const anyBratsLeft = Array.from(images).some(img => img.dataset.isBrat === 'true');
         if (!anyBratsLeft) {
@@ -230,6 +233,7 @@ window.onload = function() {
             console.log(`terms.html?token=${token}`);
             window.location.href = `terms.html?token=${token}`; // Redirect to terms and conditions page
         } else {
+            logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on brat' });
             showError("There was still brat, which you'd know if you weren't a computer program running on loop trying to destroy our servers. Hope you get a virus. You got algo we got rhythm. Goodbye.") // Error if any brat is left
         }
     }
