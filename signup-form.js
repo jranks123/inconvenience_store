@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const optOut = document.getElementById('optOut').checked;
 
         if (firstName !== firstName.toLowerCase()) {
             showError('First name must be all lower case.');
@@ -20,8 +23,30 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Redirect to the congratulations page with the name as a query parameter
-        window.location.href = `congratulations.html?firstName=${firstName}&lastName=${lastName}`;
+        const formData = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phoneNumber: phoneNumber,
+            optOut: optOut,
+        };
+
+        fetch('https://script.google.com/macros/s/AKfycbx0Mt588DFscOPEETFsMgWMXe8Nu5fhp2SdKCOyfW_8PTOaLS9KrZf5Ggh5mo4Zcfmx6w/exec', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'no-cors',
+            body: JSON.stringify(formData)
+        })        
+        .then(() => {
+            // Since we can't check the response, assume success
+            window.location.href = `congratulations.html?firstName=${firstName}&lastName=${lastName}`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showError('Failed to submit form. Please try again.');
+        });
     });
 
     errorContinueButton.addEventListener('click', () => {
