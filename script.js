@@ -75,13 +75,17 @@ window.onload = function() {
 
             popup.addEventListener('click', function(event) {
               event.preventDefault();
+              event.stopPropagation();
               logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on ad', adId: popupId });
               var link = popup.querySelector('a');
+              console.log('here2')
               window.location.href = link.href; // Open link in a new tab
             })
 
             closeButton.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default close action
+              console.log('here')
+                event.preventDefault();
+                event.stopPropagation(); // Prevent default close action
                 clickCounts[index]++;
                 handleCloseButtonClick(index);
             });
