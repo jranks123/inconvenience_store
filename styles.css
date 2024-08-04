@@ -98,6 +98,31 @@
     transform: translate(-50%, -50%);
 }
 
+.close-bottom-center {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+}
+
+.close-top-center {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.close-left-center {
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.close-right-center {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
 html, body {
     height: 100%; /* Ensure the minimum height is the full viewport */
     margin: 0;

@@ -1,6 +1,10 @@
 window.onload = function() {
     var popups = ['popup1', 'popup2', 'popup3', 'popup4', 'popup5'];
-    var closeButtonPositions = ['close-top-right', 'close-bottom-left', 'close-center', 'close-top-left', 'close-bottom-right'];
+    var closeButtonPositions = [
+        'close-top-right', 'close-bottom-left', 'close-center',
+        'close-top-left', 'close-bottom-right', 'close-bottom-center',
+        'close-top-center', 'close-left-center', 'close-right-center'
+    ];
     var firstPopupIndex = 0; // Start with the first popup
     var imageBasePath = 'img/'; // Base path for images
     var firstAdClicked = false;
@@ -9,6 +13,7 @@ window.onload = function() {
     sessionStorage.setItem('signupToken', token);
     let displayedBratImages = [];
     let displayedNonBratImages = [];
+    let clickCounts = new Array(popups.length).fill(0); // Track clicks on close buttons
 
     // Parameters for number of brat and non-brat images
     const numberOfBratImages = 6; // Total number of brat images available
@@ -23,7 +28,7 @@ window.onload = function() {
         // Attach close event to each popup
         popups.forEach((popupId, index) => {
             var closeButton = document.getElementById('close-btn' + (index + 1));
-            closeButton.addEventListener('click', function() { closePopup(index); });
+            closeButton.addEventListener('click', function() { handleCloseButtonClick(index); });
         });
     }
 
@@ -36,12 +41,25 @@ window.onload = function() {
         popup.style.display = 'block'; // Show the popup
     }
 
-    function closePopup(index) {
-        if (index === 0 && !firstAdClicked) {
+    function handleCloseButtonClick(index) {
+        clickCounts[index]++;
+        if (index === 0 && clickCounts[index] === 1 && !firstAdClicked) {
             firstAdClicked = true; // Set the flag that the first ad has been clicked
             window.location.href = "mailto:boss@example.com?subject=Not%20feeling%20great&body=Dear%20[your bosses name],%0AI'm%20just%20emailing%20you%20to%20let%20you%20know%20that%20I've%20got%20a%20bit%20of%20a%20head%20cold%20and%20it's%20looking%20like%20I%20might%20not%20be%20able%20to%20make%20it%20in%20on%20Monday.%20It%20really%20seems%20to%20be%20going%20round%20at%20the%20moment!%20I'm%20going%20to%20rest%20up%20-%20hopefully%20see%20you%20Tuesday.%0ABest,%0A[your name]";
             return; // Exit the function to prevent further actions
         }
+
+        if (clickCounts[index] < 2) {
+            // Move the close button to a new random position
+            var closeButton = document.getElementById('close-btn' + (index + 1));
+            var randomPosition = closeButtonPositions[Math.floor(Math.random() * closeButtonPositions.length)];
+            closeButton.className = 'close-btn ' + randomPosition;
+        } else {
+            closePopup(index);
+        }
+    }
+
+    function closePopup(index) {
         var popup = document.getElementById(popups[index]);
         popup.style.display = 'none'; // Hide the popup
 

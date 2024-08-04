@@ -8,19 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const questions = [
         "Which of these won't you see or be covered with inside the venue?",
         "What can't be worn inside?",
-        "How many years has the Inconvenience Store been at Boomtown?"        
+        "How many years has the Inconvenience Store been at Boomtown?"
+        "Are you feeling lucky?"
     ];
 
     const correctAnswers = [
         "animal products",
         "non-Inconvenience store bucket hats",
         "10"
+        "yes"
     ];
 
     const wrongAnswers = [
         ["liquids", "sprays", "gels", "glue", "various food items"],
         ["birthday suit", "boot-cut jeans", "football shirts"],
         ["5", "6", "7", "8", "9", "11", "12"]
+        ["no"]
     ];
 
     // Function to shuffle an array
@@ -40,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <h2>Terms of Use</h2>
         <p>The use of this website is subject to the following terms of use:</p>
         <ul>
+            <li>${sillyClauses[2]}</li>
             <li>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</li>
             <li>This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties: .</li>
             <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li>
@@ -54,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <li>Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offence.</li>
             <li>From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).</li>
             <li>Your use of this website and any dispute arising out of such use of the website is subject to the laws of England, Northern Ireland, Scotland and Wales.</li>
-            <li>${sillyClauses[2]}</li>
         </ul>
     `;
 
