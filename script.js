@@ -83,7 +83,7 @@ window.onload = function() {
             return; // Exit the function to prevent further actions
         }
 
-        if (clickCounts[index] < 2) {
+        if (clickCounts[index] < 1) {
             // Move the close button to a new random position
             var closeButton = document.getElementById('close-btn' + (index + 1));
             moveCloseButton(closeButton);
