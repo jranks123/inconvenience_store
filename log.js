@@ -7,16 +7,29 @@ function getVisitorId() {
     return visitorId;
 }
 
+function getAttempts() {
+  if (!localStorage.getItem('attempts')) {
+      localStorage.setItem('attempts', 1);
+      return 1;
+  } else {
+      let attempts = parseInt(localStorage.getItem('attempts'));
+      return attempts;
+  }
+}
+
+
 // Function to log events
 function logEvent(eventName, payload) {
     const visitorId = getVisitorId();
+    const attempts = getAttempts();
     const data = {
         visitorId: visitorId,
         eventName: eventName,
-        payload: payload
+        payload: payload,
+        attempts: attempts
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbyxQE4TCE6FzHMn--Tp8f-fqDnrSfG-c7pajYx0AYyGIuooDDQBnE71Hd21RQHmWGzQ/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxNQIwPJE24fPERbUeKc7LOLXVgRhjzNcHOHh-CxdAOIKg3usKzmmXuvjJVKf4F5Ts/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

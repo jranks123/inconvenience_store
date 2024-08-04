@@ -1,4 +1,4 @@
-logEvent('PageLoad', { pageName: 'homepage' });
+
 window.onload = function() {
     var popups = ['popup1', 'popup2', 'popup3'];
     var closeButtonPositions = [
@@ -16,6 +16,7 @@ window.onload = function() {
         let attempts = parseInt(localStorage.getItem('attempts'));
         localStorage.setItem('attempts', parseInt(attempts) + 1);
     }
+    logEvent('PageLoad', { pageName: 'homepage' });
 
     var firstPopupIndex = 0; // Start with the first popup
     var imageBasePath = 'img/'; // Base path for images
