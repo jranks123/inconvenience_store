@@ -22,14 +22,17 @@ function getAttempts() {
 function logEvent(eventName, payload) {
     const visitorId = getVisitorId();
     const attempts = getAttempts();
+    const timestamp = new Date().toISOString(); // Add a timestamp
+
     const data = {
         visitorId: visitorId,
         eventName: eventName,
         payload: payload,
-        attempts: attempts
+        attempts: attempts,
+        timestamp: timestamp    
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbxNQIwPJE24fPERbUeKc7LOLXVgRhjzNcHOHh-CxdAOIKg3usKzmmXuvjJVKf4F5Ts/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzcuUi_s1r_F5YcPQK6TXoIRoKYS67OHr1J38aX-PlL0wAx3CiDsuA8JhS4w2jtJanu/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
