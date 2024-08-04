@@ -243,6 +243,17 @@ window.onload = function() {
         if (!anyBratsLeft) {
             charliSound.play();
             const token = generateToken();
+            const confettiContainer = document.querySelector('.confetti');
+            confettiContainer.style.zIndex = 100000;
+
+            for (let i = 0; i < 100; i++) {
+                const confettiPiece = document.createElement('div');
+                confettiPiece.classList.add('confetti-piece');
+                confettiPiece.style.left = `${Math.random() * 100}%`;
+                confettiPiece.style.animationDelay = `${Math.random() * 5}s`;
+                confettiPiece.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                confettiContainer.appendChild(confettiPiece);
+            }
             sessionStorage.setItem('termsToken', token); // Store the token in session storage
             console.log(`terms.html?token=${token}`);
             setTimeout(() => {
