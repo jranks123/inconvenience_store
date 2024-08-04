@@ -7,14 +7,15 @@ window.onload = function() {
     ];
 
     if (!localStorage.getItem('startTime')) {
-      localStorage.setItem('startTime', Date.now());
+        localStorage.setItem('startTime', Date.now());
     }
     if (!localStorage.getItem('attempts')) {
         localStorage.setItem('attempts', 1);
     } else {
-      let attempts = localStorage.getItem('attempts');
-      localStorage.setItem('attempts', attempts + 1);
+        let attempts = parseInt(localStorage.getItem('attempts'));
+        localStorage.setItem('attempts', int(attempts) + 1);
     }
+
     var firstPopupIndex = 0; // Start with the first popup
     var imageBasePath = 'img/'; // Base path for images
     var firstAdClicked = false;
@@ -31,6 +32,11 @@ window.onload = function() {
     const initialBratImages = 3; // Number of brat images to show initially
     const initialNonBratImages = 9 - initialBratImages; // Number of non-brat images to show initially
 
+    function moveCloseButton(closeButton) {
+        var randomPosition = closeButtonPositions[Math.floor(Math.random() * closeButtonPositions.length)];
+        closeButton.className = 'close-btn ' + randomPosition; // Apply random position
+    }
+
     // Initialize and display the popups when the page loads
     function initializePopups() {
         showPopup(firstPopupIndex); // Show the first popup
@@ -38,21 +44,29 @@ window.onload = function() {
         // Attach close event to each popup
         popups.forEach((popupId, index) => {
             var closeButton = document.getElementById('close-btn' + (index + 1));
-            closeButton.addEventListener('click', function() { handleCloseButtonClick(index); });
+            var popup = document.getElementById(popupId);
+            var link = popup.querySelector('a');
+            clickCounts[index] = 0; // Initialize click count
+
+            closeButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default close action
+                clickCounts[index]++;
+                if (clickCounts[index] === 1) {
+                    window.open(link.href, '_blank'); // Open link in a new tab on first click
+                }
+                handleCloseButtonClick(index);
+            });
         });
     }
 
     function showPopup(index) {
         var popup = document.getElementById(popups[index]);
         var closeButton = popup.querySelector('.close-btn');
-        var randomPosition = closeButtonPositions[Math.floor(Math.random() * closeButtonPositions.length)];
-        closeButton.className = 'close-btn ' + randomPosition; // Apply random position
-
+        moveCloseButton(closeButton); // Initial random position for close button
         popup.style.display = 'block'; // Show the popup
     }
 
     function handleCloseButtonClick(index) {
-        clickCounts[index]++;
         if (index === 0 && clickCounts[index] === 1 && !firstAdClicked) {
             firstAdClicked = true; // Set the flag that the first ad has been clicked
             window.location.href = "mailto:boss@example.com?subject=Not%20feeling%20great&body=Dear%20[your bosses name],%0AI'm%20just%20emailing%20you%20to%20let%20you%20know%20that%20I've%20got%20a%20bit%20of%20a%20head%20cold%20and%20it's%20looking%20like%20I%20might%20not%20be%20able%20to%20make%20it%20in%20on%20Monday.%20It%20really%20seems%20to%20be%20going%20round%20at%20the%20moment!%20I'm%20going%20to%20rest%20up%20-%20hopefully%20see%20you%20Tuesday.%0ABest,%0A[your name]";
@@ -62,8 +76,7 @@ window.onload = function() {
         if (clickCounts[index] < 2) {
             // Move the close button to a new random position
             var closeButton = document.getElementById('close-btn' + (index + 1));
-            var randomPosition = closeButtonPositions[Math.floor(Math.random() * closeButtonPositions.length)];
-            closeButton.className = 'close-btn ' + randomPosition;
+            moveCloseButton(closeButton);
         } else {
             closePopup(index);
         }
@@ -197,6 +210,6 @@ window.onload = function() {
     });
 
     setTimeout(() => {
-      initializePopups(); // Initialize and display the initial popups
+        initializePopups(); // Initialize and display the initial popups
     }, 1000);
 };
