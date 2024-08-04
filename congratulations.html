@@ -8,20 +8,15 @@
 </head>
 <body>
     <div class="congrats-container">
-        <h1 id="congratsMessage"></h1>
+      <div class="congratulations-container">
+          <h1 id="congratsMessage">Congratulations!</h1>
+      </div>
     </div>
 
     <div class="confetti"></div>
+    <script src="congratulations.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const firstName = urlParams.get('firstName');
-            const lastName = urlParams.get('lastName');
-
-            const congratsMessage = document.getElementById('congratsMessage');
-            congratsMessage.textContent = `Congratulations ${firstName} ${lastName}, you have completed the online steps of sign up. Please show this screen to a member of staff to get the next form.`;
-        });
 
         // Confetti animation
         const confettiContainer = document.querySelector('.confetti');
