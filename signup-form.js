@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             mode: 'no-cors',
             body: JSON.stringify(formData)
-        })        
+        })
         .then(() => {
             // Since we can't check the response, assume success
             window.location.href = `congratulations.html?firstName=${firstName}&lastName=${lastName}`;

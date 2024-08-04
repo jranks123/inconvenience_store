@@ -1,3 +1,6 @@
+const backgroundMusic = document.getElementById('backgroundMusic');
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const sillyClauses = [
         "BY ENTERING THIS STORE, YOU MAY COME IN CLOSE CONTACT WITH NUTS AND EVEN NUTTIER PERFORMERS. LIQUIDS, SPRAYS, GELS, GLUE AND VARIOUS FOOD ITEMS WILL BE USED THROUGHOUT THE WEEKEND.",
@@ -8,21 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const questions = [
         "Which of these won't you see or be covered with inside the venue?",
         "What can't be worn inside?",
-        "How many years has the Inconvenience Store been at Boomtown?"
+        "How many years has the Inconvenience Store been at Boomtown?",
         "Are you feeling lucky?"
     ];
 
     const correctAnswers = [
         "animal products",
         "non-Inconvenience store bucket hats",
-        "10"
+        "10",
         "yes"
     ];
 
     const wrongAnswers = [
         ["liquids", "sprays", "gels", "glue", "various food items"],
         ["birthday suit", "boot-cut jeans", "football shirts"],
-        ["5", "6", "7", "8", "9", "11", "12"]
+        ["5", "6", "7", "8", "9", "11", "12"],
         ["no"]
     ];
 
@@ -66,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('acceptTermsButton').addEventListener('click', () => {
         document.getElementById('quizModal').style.display = 'block';
+        backgroundMusic.play();
 
         // Insert quiz questions
         const quizQuestionsDiv = document.getElementById('quizQuestions');
