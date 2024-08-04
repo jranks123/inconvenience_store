@@ -250,6 +250,25 @@ button {
 #verifyButton {
     display: block;
     margin: 20px auto;
+    padding: 20px 40px;
+    font-size: 24px; /* Increase the font size */
+    background-color: #8ACE00; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+#verifyButton:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+#verifyButton:active {
+    background-color: #1e7e34; /* Even darker green when active */
+    transform: scale(0.95); /* Slightly shrink the button when active */
 }
 
 #acceptTermsButton {
