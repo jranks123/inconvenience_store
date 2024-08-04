@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const termsContent = `
+        <h1>TO CONTINUE PLEASE READ AND ACCEPT OUT TERMS AND CONDITIONS</h1>
         <h2>Terms and conditions</h2>
         <p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Inconvenience Store's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.</p>
         <p>The term 'Inconvenience Store' or 'us' or 'we' refers to the owner of the website whose registered office is Inconvenience Store, Letsbe Avenue, Boomtown. Our company registration number is 3498486993. The term 'you' refers to the user or viewer of our website.</p>
