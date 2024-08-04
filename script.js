@@ -50,6 +50,7 @@ window.onload = function() {
       , "Tier bikes are brat are you joking. that shade of green erughhhhhhh"
       , "The Olympics are not brat. altho the logo kinda is. still, ur probs a robot"
       , "did u actually think Tesla was brat. u are defo a robot"
+      , "Some people think Paris is brat. OR SHOULD I SAY SOME ROBOTS THINK PARIS IS BRAT. not this time you binary b"
     ]
 
     function moveCloseButton(closeButton) {
