@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let correct = true;
         userAnswers.forEach((answer, index) => {
+          logEvent('AnswerGiven', { pageName: 'terms', answer: answer });
             if (answer !== correctAnswers[index].toLowerCase()) {
                 correct = false;
             }

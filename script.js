@@ -73,6 +73,13 @@ window.onload = function() {
             console.log(link)
             clickCounts[index] = 0; // Initialize click count
 
+            popup.addEventListener('click', function(event) {
+              event.preventDefault();
+              logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on ad', adId: popupId });
+              var link = popup.querySelector('a');
+              window.location.href = link.href; // Open link in a new tab
+            })
+
             closeButton.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default close action
                 clickCounts[index]++;

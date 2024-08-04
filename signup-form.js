@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     submitFeedbackButton.addEventListener('click', () => {
+        logEvent('SiteFeedbackStars', { pageName: 'signupForm', stars: feedbackSlider.value });
         if (feedbackSlider.value !== '5') {
             surveyModal.style.display = 'none';
             additionalFeedbackModal.style.display = 'block';
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
           logEvent('FailedAttempt', { pageName: 'signupForm', reason: 'didn\'t give feedback' });
           showError('We are so sorry that you didn\'t think giving us written feedback was worth your precious time. You must be really important. Maybe try again when you\'ve got capacity to take this seriously.');
       } else {
+        logEvent('SiteFeedbackReason', { pageName: 'signupForm', feedback: additionalFeedback.value.trim() });
           additionalFeedbackModal.style.display = 'none';
       }
     });
@@ -70,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('email').value;
         const phoneNumber = document.getElementById('phoneNumber').value;
         const optOut = document.getElementById('optOut').checked;
+        logEvent('DetailsFormSubmission', { pageName: 'signupForm', firstName: firstName, lastName: lastName, email: email, phoneNUmber: phoneNumber  });
 
         if (firstName !== firstName.toLowerCase()) {
             logEvent('FailedAttempt', { pageName: 'signupForm', reason: 'first name not lower case' });
