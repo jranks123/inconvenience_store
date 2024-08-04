@@ -209,7 +209,7 @@ window.onload = function() {
     function handleImageClick(event) {
         const img = event.target;
         if (img.dataset.isBrat === 'false') {
-          logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on non-brat', errorMessage: img.errorMessage });
+          logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on non-brat', errorMessage: img.dataset.errorMessage });
           showError(img.dataset.errorMessage);
         } else {
 
