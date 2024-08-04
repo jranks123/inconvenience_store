@@ -196,5 +196,7 @@ window.onload = function() {
         loadImages();
     });
 
-    initializePopups(); // Initialize and display the initial popups
+    setTimeout(() => {
+      initializePopups(); // Initialize and display the initial popups
+    }, 1000);
 };
