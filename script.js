@@ -6,6 +6,7 @@ window.onload = function() {
         'close-top-left', 'close-bottom-right'
     ];
     const popsound = document.getElementById('popsound');
+    const charliSound = document.getElementById('charliSound');
 
     if (!localStorage.getItem('startTime')) {
         localStorage.setItem('startTime', Date.now());
@@ -240,10 +241,13 @@ window.onload = function() {
         const images = document.querySelectorAll('#imageGrid img');
         const anyBratsLeft = Array.from(images).some(img => img.dataset.isBrat === 'true');
         if (!anyBratsLeft) {
+            charliSound.play();
             const token = generateToken();
             sessionStorage.setItem('termsToken', token); // Store the token in session storage
             console.log(`terms.html?token=${token}`);
-            window.location.href = `terms.html?token=${token}`; // Redirect to terms and conditions page
+            setTimeout(() => {
+              window.location.href = `terms.html?token=${token}`; // Redirect to terms and conditions page
+            }, 3000);
         } else {
             logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Stil brats left' });
             showError("There was still brat, which you'd know if you weren't a computer program running on loop trying to destroy our servers. Hope you get a virus. You got algo we got rhythm. Goodbye.") // Error if any brat is left

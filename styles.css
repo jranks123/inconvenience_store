@@ -69,73 +69,44 @@
 
 .close-btn {
     position: absolute;
-    color: #aaa;
-    font-size: 28px;
+    color: black;
+    font-size: 48px;
     font-weight: bold;
     cursor: pointer;
-    right: 10px;
-    top: 10px;
+    right: 5px;
+    top: 5px;
 }
 
 .close-btn:hover,
-.close-btn:focus {
-    color: #000;
+.close-btn:focus {    
+    color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
 .close-top-right {
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 5px;
 }
 
 .close-top-left {
-    top: 10px;
-    left: 10px;
+    top: 0;
+    left: 5px;
 }
 
 .close-bottom-right {
-    bottom: 10px;
-    right: 10px;
+    bottom: 0;
+    right: 5px;
     top: auto;
 }
 
 .close-bottom-left {
-    bottom: 10px;
-    left: 10px;
+    bottom: 0;
+    left: 5px;
     top: auto;
 }
 
-.close-center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
-.close-bottom-center {
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    top: auto;
-}
-
-.close-top-center {
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.close-left-center {
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-}
-
-.close-right-center {
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-}
 
 html, body {
     height: 100%; /* Ensure the minimum height is the full viewport */
