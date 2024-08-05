@@ -16,20 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const additionalFeedbackModal = document.getElementById('additionalFeedbackModal');
     const additionalFeedback = document.getElementById('additionalFeedback');
     const submitAdditionalFeedbackButton = document.getElementById('submitAdditionalFeedbackButton');
-
+    let outOfTime = false;
 
     function updateTimer() {
-        elapsed += 0.25; // Increment elapsed time by 0.25 seconds (quarter of a second)
-        let remainingTime = totalTime - Math.floor(elapsed * 4); // Countdown at 4x speed
-        if (remainingTime <= 0) {
-            timerBar.textContent = "Time's up!";
-            logEvent('FailedAttempt', { pageName: 'signupForm', reason: 'timeout' });
-            showError('You ran out of time');
-            // Optionally, you can handle form timeout here
-        } else {
-            let minutes = Math.floor(remainingTime / 60);
-            let seconds = remainingTime % 60;
-            timerBar.textContent = `You have ${minutes}:${seconds < 10 ? '0' : ''}${seconds} minutes to fill out this form.`;
+        if (!outOfTime) {
+          elapsed += 0.25; // Increment elapsed time by 0.25 seconds (quarter of a second)
+          let remainingTime = totalTime - Math.floor(elapsed * 4); // Countdown at 4x speed
+          if (remainingTime <= 0) {
+              timerBar.textContent = "Time's up!";
+              logEvent('FailedAttempt', { pageName: 'signupForm', reason: 'timeout' });
+              showError('You ran out of time');
+              outOfTime = true;
+              // Optionally, you can handle form timeout here
+          } else {
+              let minutes = Math.floor(remainingTime / 60);
+              let seconds = remainingTime % 60;
+              timerBar.textContent = `You have ${minutes}:${seconds < 10 ? '0' : ''}${seconds} minutes to fill out this form.`;
+          }
         }
     }
 
