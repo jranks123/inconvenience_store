@@ -1,6 +1,6 @@
 
 window.onload = function() {
-    var popups = ['popup1', 'popup2', 'popup3'];
+    var popups = ['popup1', 'popup2', 'popup3', 'popup4'];
     var closeButtonPositions = [
         'close-top-right', 'close-bottom-left',
         'close-top-left', 'close-bottom-right'
