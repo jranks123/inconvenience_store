@@ -358,6 +358,21 @@ button {
     background-color: #C13584; /* Slightly darker shade of Instagram's brand color */
 }
 
+#bucketButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #EFC81A; /* Instagram's brand color */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#bucketButton:hover {
+    background-color: #197231; /* Slightly darker shade of Instagram's brand color */
+}
+
 /* Confetti styles */
 .confetti {
     position: absolute;

@@ -17,4 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open('https://www.instagram.com/the_inconvenience_store_uk/');
     });
 
+    document.getElementById('bucketButton').addEventListener('click', function() {
+        logEvent('ButtonClicked', { pageName: 'congratulations', button: 'depop' });
+        window.open('https://www.depop.com/theinconveniencestore/');
+    });
+
 });
