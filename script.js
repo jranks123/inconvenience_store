@@ -318,7 +318,7 @@ window.onload = function() {
     button.style.position = 'absolute';
     let randomNum = Math.floor(Math.random() * 5);
     if(randomNum == 2) {
-      setInterval(moveButton, 1000);
+      setInterval(moveButton, 500);
     } else {
       console.log(randomNum)
     }
