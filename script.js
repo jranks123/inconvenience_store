@@ -7,7 +7,8 @@ window.onload = function() {
     ];
     const popsound = document.getElementById('popsound');
     const charliSound = document.getElementById('charliSound');
-
+    const bennySound = document.getElementById('bennySound');
+    let attemptsVar = 1;
     if (!localStorage.getItem('startTime')) {
         localStorage.setItem('startTime', Date.now());
     }
@@ -16,6 +17,7 @@ window.onload = function() {
     } else {
         let attempts = parseInt(localStorage.getItem('attempts'));
         localStorage.setItem('attempts', parseInt(attempts) + 1);
+        attemptsVar = parseInt(attempts) + 1;
     }
     logEvent('PageLoad', { pageName: 'homepage' });
 
@@ -292,9 +294,22 @@ window.onload = function() {
         window.location.reload(); // Reload the entire page
     });
 
-    document.getElementById('signupButton').addEventListener('click', function() {
-        document.getElementById('captchaModal').style.display = 'block';
-        loadImages();
+    let buttonHasStartedMoving = false;
+    const signUpButton = document.getElementById('signupButton');
+    signupButton.addEventListener('click', function() {
+        let randomNum = Math.floor(Math.random() * 10);
+        if((attemptsVar == 2 || (randomNum == 2 && attemptsVar != 1)) && buttonHasStartedMoving == false) {
+          bennySound.play();
+          buttonHasStartedMoving = true;
+          setInterval(moveButton, 500);
+          signupButton.textContent = 'catch me if you can teehee';
+          logEvent('SoundPlayed', { pageName: 'homepage', sound: 'bennyHill' });
+        } else {
+          bennySound.pause();
+          document.getElementById('captchaModal').style.display = 'block';
+          loadImages();
+        }
+
     });
 
 
@@ -314,12 +329,5 @@ window.onload = function() {
         initializePopups(); // Initialize and display the initial popups
     }, 1000);
 
-    const button = document.getElementById('signupButton');
-    button.style.position = 'absolute';
-    let randomNum = Math.floor(Math.random() * 5);
-    if(randomNum == 2) {
-      setInterval(moveButton, 500);
-    } else {
-      console.log(randomNum)
-    }
+
 };
