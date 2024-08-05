@@ -474,5 +474,5 @@ button {
 }
 
 .fading-text {
-    animation: fade 30s forwards;
+    animation: fade 10s forwards;
 }

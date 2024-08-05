@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sillyClauses = [
         "BY ENTERING THIS STORE, YOU MAY COME IN CLOSE CONTACT WITH NUTS AND EVEN NUTTIER PERFORMERS. LIQUIDS, SPRAYS, GELS, GLUE AND VARIOUS FOOD ITEMS WILL BE USED THROUGHOUT THE WEEKEND.",
         "No non-Inconvenience store bucket hats can be worn inside.",
-        "You must know that we have been at boomtown since 2015"
+        "You must know that this is our 10th boomtown"
     ];
 
     const questions = [
