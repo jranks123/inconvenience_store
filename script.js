@@ -297,8 +297,8 @@ window.onload = function() {
     let buttonHasStartedMoving = false;
     const signUpButton = document.getElementById('signupButton');
     signupButton.addEventListener('click', function() {
-        let randomNum = Math.floor(Math.random() * 10);
-        if((attemptsVar == 2 || (randomNum == 2 && attemptsVar != 1)) && buttonHasStartedMoving == false) {
+        let randomNum = Math.floor(Math.random() * 8);
+        if((attemptsVar == 2 || (randomNum = 2 && attemptsVar != 1)) && buttonHasStartedMoving == false) {
           bennySound.play();
           buttonHasStartedMoving = true;
           setInterval(moveButton, 500);
