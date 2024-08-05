@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ["liquids", "sprays", "gels", "glue", "various food items"],
         ["birthday suit", "boot-cut jeans", "football shirts"],
         ["5", "6", "7", "8", "9", "11", "12"],
-        ["5", "6", "7", "8", "9", "11", "12"]
+        ["5", "6", "7", "8", "9", "11", "13"]
     ];
 
     // Function to shuffle an array
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li>
             <li>${sillyClauses[0]}</li>
             <li>Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.</li>
-            <li>${sillyClauses[1]}</li>                
+            <li>${sillyClauses[1]}</li>
             <li>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</li>
             <li>All trade marks reproduced in this website which are not the property of, or licensed to, the operator are acknowledged on the website.</li>
             <li>Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offence.</li>
