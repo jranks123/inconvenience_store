@@ -316,9 +316,9 @@ window.onload = function() {
 
     const button = document.getElementById('signupButton');
     button.style.position = 'absolute';
-    let randomNum = Math.floor(Math.random() * 3);
+    let randomNum = Math.floor(Math.random() * 5);
     if(randomNum == 2) {
-      setInterval(moveButton, 750);
+      setInterval(moveButton, 1000);
     } else if  (randomNum == 1) {
       setInterval(moveButton, 500);
     } else {
