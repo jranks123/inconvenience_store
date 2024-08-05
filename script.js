@@ -82,7 +82,7 @@ window.onload = function() {
               window.location.href = link.href;// Open link in a new tab
             })
 
-            closeButton.addEventListener('click', function(event) {              
+            closeButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 event.stopPropagation(); // Prevent default close action
                 clickCounts[index]++;
@@ -267,6 +267,23 @@ window.onload = function() {
         return Math.random().toString(36).substr(2); // Generate a simple random token
     }
 
+
+    function getRandomPosition(element) {
+        const x = window.innerWidth - element.clientWidth;
+        const y = window.innerHeight - element.clientHeight;
+        const randomX = Math.random() * x;
+        const randomY = Math.random() * y;
+        return [randomX, randomY];
+    }
+
+    function moveButton() {
+        const button = document.getElementById('signupButton');
+        const [newX, newY] = getRandomPosition(button);
+        button.style.left = `${newX}px`;
+        button.style.top = `${newY}px`;
+    }
+
+
     document.getElementById('verifyButton').addEventListener('click', function() {
         checkCompletion();
     });
@@ -279,6 +296,8 @@ window.onload = function() {
         document.getElementById('captchaModal').style.display = 'block';
         loadImages();
     });
+
+
 
     window.addEventListener( "pageshow", function ( event ) {
       var historyTraversal = event.persisted ||
@@ -294,4 +313,8 @@ window.onload = function() {
     setTimeout(() => {
         initializePopups(); // Initialize and display the initial popups
     }, 1000);
+
+    const button = document.getElementById('signupButton');
+    button.style.position = 'absolute';
+    setInterval(moveButton, 750);
 };
