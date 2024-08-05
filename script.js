@@ -80,7 +80,7 @@ window.onload = function() {
               logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on ad', adId: popupId });
               var link = popup.querySelector('a');
               console.log('here2')
-              window.location.href = link.href; // Open link in a new tab
+              window.open(link.href); // Open link in a new tab
             })
 
             closeButton.addEventListener('click', function(event) {
