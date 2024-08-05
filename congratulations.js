@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     congratulationsMessage.textContent = `Congratulations ${firstName} ${lastName}, you have completed the online steps of sign up in ${attempts} attempts over ${totalTime} seconds. Please show this screen to a member of staff to get the next form.`;
     // Add event listener to the Instagram button
     document.getElementById('followInstagramButton').addEventListener('click', function() {
+        logEvent('ButtonClicked', { pageName: 'congratulations', button: 'insta' });
         window.open('https://www.instagram.com/the_inconvenience_store_uk/');
     });
 
