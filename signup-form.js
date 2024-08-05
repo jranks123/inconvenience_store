@@ -101,23 +101,27 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: attempts,
             totalTime: Math.floor((Date.now() - parseInt(localStorage.getItem('startTime'))) / 1000) // Calculate total time in seconds
         };
+        if (sucessSubmitted == false) {
+          successSubmitted = true;
+          fetch('https://script.google.com/macros/s/AKfycbzrR-k6NN2Tev-OptRMBcIHPG6rvlAEVN4STW5nAI_0lsrl1tUPd6bjlQGPIwTy_2k--A/exec', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              mode: 'no-cors',
+              body: JSON.stringify(formData)
+          })
+          .then(() => {
+              // Since we can't check the response, assume success
+              window.location.href = `congratulations.html?firstName=${firstName}&lastName=${lastName}`;
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              showError('Failed to submit form. Please try again.');
+              successSubmitted = false;
+          });
 
-        fetch('https://script.google.com/macros/s/AKfycbzrR-k6NN2Tev-OptRMBcIHPG6rvlAEVN4STW5nAI_0lsrl1tUPd6bjlQGPIwTy_2k--A/exec', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            mode: 'no-cors',
-            body: JSON.stringify(formData)
-        })
-        .then(() => {
-            // Since we can't check the response, assume success
-            window.location.href = `congratulations.html?firstName=${firstName}&lastName=${lastName}`;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showError('Failed to submit form. Please try again.');
-        });
+        }
 
     });
 
