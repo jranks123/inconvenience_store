@@ -7,24 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const sillyClauses = [
         "BY ENTERING THIS STORE, YOU MAY COME IN CLOSE CONTACT WITH NUTS AND EVEN NUTTIER PERFORMERS. LIQUIDS, SPRAYS, GELS, GLUE AND VARIOUS FOOD ITEMS WILL BE USED THROUGHOUT THE WEEKEND.",
         "No non-Inconvenience store bucket hats can be worn inside.",
-        "You must know that this is our 10th boomtown"
+        "You must know that this is our 10th boomtown",
+        "Clause 4: I am holding up 12 fingers"
     ];
 
     const questions = [
         "Which of these won't you see or be covered with inside the venue?",
         "What can't be worn inside?",
-        "What number Boomtown is this year for the Inconvenience Store?"
+        "What number Boomtown is this year for the Inconvenience Store?",
+        "According to clause 4, how may fingers am i holding up?"
     ];
 
     const correctAnswers = [
         "animal products",
         "non-Inconvenience store bucket hats",
-        "10"
+        "10",
+        "12"
     ];
 
     const wrongAnswers = [
         ["liquids", "sprays", "gels", "glue", "various food items"],
         ["birthday suit", "boot-cut jeans", "football shirts"],
+        ["5", "6", "7", "8", "9", "11", "12"],
         ["5", "6", "7", "8", "9", "11", "12"]
     ];
 
@@ -49,13 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <li>${sillyClauses[2]}</li>
             <li>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</li>
             <li>This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties: .</li>
+            <li>${sillyClauses[3]}</li>
             <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li>
             <li>${sillyClauses[0]}</li>
             <li>Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.</li>
-            <li>${sillyClauses[1]}</li>
-        </ul>
-
-        <ul class="fading-text">
+            <li>${sillyClauses[1]}</li>                
             <li>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</li>
             <li>All trade marks reproduced in this website which are not the property of, or licensed to, the operator are acknowledged on the website.</li>
             <li>Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offence.</li>

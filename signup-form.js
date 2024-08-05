@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const additionalFeedback = document.getElementById('additionalFeedback');
     const submitAdditionalFeedbackButton = document.getElementById('submitAdditionalFeedbackButton');
     let outOfTime = false;
+    let sucessSubmitted = false;
 
     function updateTimer() {
         if (!outOfTime) {
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error:', error);
             showError('Failed to submit form. Please try again.');
         });
+
     });
 
     errorContinueButton.addEventListener('click', () => {

@@ -203,6 +203,7 @@ body {
 /* Error Modal specific styles */
 #errorModal .modal-content {
     margin: 10% auto; /* Adjust to ensure it appears within the viewport */
+    z-index: 100000;
 }
 
 /* Styles for the quiz modal */
@@ -474,5 +475,5 @@ button {
 }
 
 .fading-text {
-    animation: fade 10s forwards;
+    animation: fade 15s forwards;
 }
