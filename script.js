@@ -319,8 +319,6 @@ window.onload = function() {
     let randomNum = Math.floor(Math.random() * 5);
     if(randomNum == 2) {
       setInterval(moveButton, 1000);
-    } else if  (randomNum == 1) {
-      setInterval(moveButton, 500);
     } else {
       console.log(randomNum)
     }
