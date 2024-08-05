@@ -316,5 +316,12 @@ window.onload = function() {
 
     const button = document.getElementById('signupButton');
     button.style.position = 'absolute';
-    setInterval(moveButton, 750);
+    let randomNum = Math.floor(Math.random() * 3);
+    if(randomNum == 2) {
+      setInterval(moveButton, 750);
+    } else if  (randomNum == 1) {
+      setInterval(moveButton, 500);
+    } else {
+      console.log(randomNum)
+    }
 };
