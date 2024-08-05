@@ -79,12 +79,10 @@ window.onload = function() {
               event.stopPropagation();
               logEvent('FailedAttempt', { pageName: 'homepage', reason: 'Clicked on ad', adId: popupId });
               var link = popup.querySelector('a');
-              console.log('here2')
               window.location.href = link.href;// Open link in a new tab
             })
 
-            closeButton.addEventListener('click', function(event) {
-              console.log('here')
+            closeButton.addEventListener('click', function(event) {              
                 event.preventDefault();
                 event.stopPropagation(); // Prevent default close action
                 clickCounts[index]++;
