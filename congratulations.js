@@ -42,12 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay3 = document.getElementById('overlay3');
 
     overlay1.addEventListener('click', function() {
+        logEvent('JokeScreenPasssed', { pageName: 'congratulations', jokeNumber: 'overlay1' });
         overlay1.style.display = 'none';
         overlay2.style.display = 'flex';
         laughSound.play()
     });
 
     overlay2.addEventListener('click', function() {
+      logEvent('JokeScreenPasssed', { pageName: 'congratulations', jokeNumber: 'overlay2' });
         overlay2.style.display = 'none';
         overlay3.style.display = 'flex';
         laughSound.pause();
@@ -55,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     overlay3.addEventListener('click', function() {
+      logEvent('JokeScreenPasssed', { pageName: 'congratulations', jokeNumber: 'overlay3' });
         overlay3.style.display = 'none';
         respectSound.pause();
         celebrationSound.play();
