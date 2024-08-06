@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/cs.ico" type="image/x-icon">
     <title>Congratulations</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <audio id="howDeepSound" src="music/howdeep.mp3"></audio>
+    <audio id="laughSound" src="music/laugh.mp3"></audio>
+    <audio id="respectSound" src="music/respect.mp3"></audio>
+    <div id="overlay1" class="overlay">
+        <p id="errorMessage">Oops, connection failed</p>
+    </div>
+    <div id="overlay2" class="overlay" style="display: none">
+        <p id="errorMessage">just kidding. u thought we were serious ahahaha</p>
+    </div>
+    <div id="overlay3" class="overlay" style="display: none">
+        <p id="errorMessage">respect tho</p>
+    </div>
     <div class="congrats-container">
       <div class="congratulations-container">
           <h1 id="congratsMessage">Congratulations!</h1>
@@ -16,27 +26,8 @@
           <button id="followInstagramButton">Follow us on Instagram</button>
       </div>
     </div>
-
-
-
     <div class="confetti"></div>
     <script src="log.js"></script>
     <script src="congratulations.js"></script>
-
-    <script>
-
-        // Confetti animation
-        const confettiContainer = document.querySelector('.confetti');
-
-        for (let i = 0; i < 100; i++) {
-            const confettiPiece = document.createElement('div');
-            confettiPiece.classList.add('confetti-piece');
-            confettiPiece.style.left = `${Math.random() * 100}%`;
-            confettiPiece.style.animationDelay = `${Math.random() * 5}s`;
-            confettiPiece.style.animationDuration = `${Math.random() * 2 + 3}s`;
-            confettiContainer.appendChild(confettiPiece);
-        }
-    </script>
 </body>
-
 </html>
