@@ -21,6 +21,23 @@ window.onload = function() {
     }
     logEvent('PageLoad', { pageName: 'homepage' });
 
+    const overlay = document.getElementById('overlay');
+
+
+    if (attemptsVar == 1) {
+      overlay.style.display = 'flex';
+      overlay.addEventListener('click', function() {
+          overlay.style.display="none";
+          setTimeout(() => {
+              initializePopups(); // Initialize and display the initial popups
+          }, 1000);
+      });
+    } else {
+      setTimeout(() => {
+          initializePopups(); // Initialize and display the initial popups
+      }, 1000);
+    }
+
     var firstPopupIndex = 0; // Start with the first popup
     var imageBasePath = 'img/'; // Base path for images
     var firstAdClicked = false;
@@ -294,6 +311,11 @@ window.onload = function() {
         window.location.reload(); // Reload the entire page
     });
 
+
+
+
+
+
     let buttonHasStartedMoving = false;
     const signUpButton = document.getElementById('signupButton');
     signupButton.addEventListener('click', function() {
@@ -324,10 +346,5 @@ window.onload = function() {
         window.location.reload();
       }
     });
-
-    setTimeout(() => {
-        initializePopups(); // Initialize and display the initial popups
-    }, 1000);
-
 
 };

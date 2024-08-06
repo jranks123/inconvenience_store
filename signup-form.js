@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMessage = document.getElementById('errorMessage');
     const errorContinueButton = document.getElementById('errorContinueButton');
     const timerBar = document.getElementById('timerBar');
-    let totalTime = 1.5 * 60; // Total time in seconds (5 minutes)
+    let totalTime = 1.8 * 60; // Total time in seconds (5 minutes)
     let elapsed = 0;
     const surveyModal = document.getElementById('surveyModal');
     const feedbackSlider = document.getElementById('feedbackSlider');
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let attempts = parseInt(localStorage.getItem('attempts')) || 0;
         let timestamp = new Date().toISOString();
         const formData = {
-            timestamp: timestamp, 
+            timestamp: timestamp,
             firstName: firstName,
             lastName: lastName,
             email: email,

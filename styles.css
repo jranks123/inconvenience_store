@@ -22,14 +22,21 @@
     background-color: black;
     color: #00FF00; /* Green text for hacker style */
     font-family: 'Courier New', Courier, monospace; /* Hacker style font */
-    font-size: 24px;
+    font-size: 14px;
+    flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    z-index: 1000;
+    z-index: 10000;
     cursor: pointer;
 }
+
+.introtext {
+  margin: 10px 10px;
+}
+
+
 
 /* General Popup Styling */
 .popup {
