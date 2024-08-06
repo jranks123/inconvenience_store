@@ -91,8 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let attempts = parseInt(localStorage.getItem('attempts')) || 0;
-
+        let timestamp = new Date().toISOString();
         const formData = {
+            timestamp: timestamp, 
             firstName: firstName,
             lastName: lastName,
             email: email,
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         if (sucessSubmitted == false) {
           successSubmitted = true;
-          fetch('https://script.google.com/macros/s/AKfycbzrR-k6NN2Tev-OptRMBcIHPG6rvlAEVN4STW5nAI_0lsrl1tUPd6bjlQGPIwTy_2k--A/exec', {
+          fetch('https://script.google.com/macros/s/AKfycbwLzohbFfOPPpio_-eS0mbGR1v0fYvH-2g6CdwW_RKFcmRgg7w_-qKd-sPSQpvIryOH/exec', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
