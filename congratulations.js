@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const firstName = urlParams.get('firstName');
     const lastName = urlParams.get('lastName');
-    const howDeepSound = document.getElementById('howDeepSound');
+    const celebrationSound = document.getElementById('celebrationSound');
     const laughSound = document.getElementById('laughSound');
     const respectSound = document.getElementById('respectSound');
     const congratsContent = document.getElementById('congratsContent');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay3.addEventListener('click', function() {
         overlay3.style.display = 'none';
         respectSound.pause();
-        howDeepSound.play();
+        celebrationSound.play();
     });
 
 
