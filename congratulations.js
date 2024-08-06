@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const firstName = urlParams.get('firstName');
     const lastName = urlParams.get('lastName');
+    const howdeep = document.getElementById('howDeepSound');
+    howdeep.play();
 
     const attempts = localStorage.getItem('attempts');
     console.log(attempts);
