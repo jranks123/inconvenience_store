@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!hasSeenIntro) {
         logEvent('IntroShown', { pageName: 'homepage' });
         localStorage.setItem('hasSeenIntro', true);
-        const overlay = document.getElementById('overlay');
         overlay.style.display = 'flex';
     } else {
       setTimeout(() => {
