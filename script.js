@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let hasSeenIntro = localStorage.getItem('hasSeenIntro')
     overlay.style.display = 'none';
     if (!hasSeenIntro) {
-        console.log("hello")
+        logEvent('IntroShown', { pageName: 'homepage' });
         localStorage.setItem('hasSeenIntro', true);
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'flex';
