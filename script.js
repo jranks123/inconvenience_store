@@ -12,13 +12,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     let hasSeenIntro = localStorage.getItem('hasSeenIntro')
-    console.log(!hasSeenIntro == true)
     overlay.style.display = 'none';
-    if (!hasSeenIntro == true) {
+    if (!hasSeenIntro) {
         console.log("hello")
         localStorage.setItem('hasSeenIntro', true);
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'flex';
+    } else {
+      setTimeout(() => {
+          initializePopups(); // Initialize and display the initial popups
+      }, 1000);
     }
 
     var popups = ['popup1', 'popup2', 'popup3', 'popup4'];
@@ -329,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
        ];
 
        const typewriterContainer = document.getElementById('overlay');
-       
+
 
        let index = 0;
        let textIndex = 0;
@@ -398,7 +401,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
     });
-
 
 
     window.addEventListener( "pageshow", function ( event ) {
