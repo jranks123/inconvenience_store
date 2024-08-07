@@ -36,7 +36,23 @@
   margin: 10px 10px;
 }
 
+.rush {
+  background-color: #F8CF05;
+  color: #008645;
+  font-weight: bolder;
+  font-size: 16px;
+}
 
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.overlay .introtext {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid orange; /* Change color as needed */
+  animation: typing 1.5s steps(40, end), blink 0.75s step-end infinite;
+}
 
 /* General Popup Styling */
 .popup {

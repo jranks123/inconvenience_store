@@ -1,5 +1,26 @@
+document.addEventListener('DOMContentLoaded', function() {
 
-window.onload = function() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+    overlay.addEventListener('click', function() {
+        console.log("hello");
+        overlay.style.display = 'none';
+        setTimeout(() => {
+            initializePopups(); // Initialize and display the initial popups
+        }, 1000);
+    });
+
+
+    let hasSeenIntro = localStorage.getItem('hasSeenIntro')
+    console.log(!hasSeenIntro == true)
+    overlay.style.display = 'none';
+    if (!hasSeenIntro == true) {
+        console.log("hello")
+        localStorage.setItem('hasSeenIntro', true);
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'flex';
+    }
+
     var popups = ['popup1', 'popup2', 'popup3', 'popup4'];
     var closeButtonPositions = [
         'close-top-right', 'close-bottom-left',
@@ -9,6 +30,7 @@ window.onload = function() {
     const charliSound = document.getElementById('charliSound');
     const bennySound = document.getElementById('bennySound');
     let attemptsVar = 1;
+
     if (!localStorage.getItem('startTime')) {
         localStorage.setItem('startTime', Date.now());
     }
@@ -21,22 +43,8 @@ window.onload = function() {
     }
     logEvent('PageLoad', { pageName: 'homepage' });
 
-    const overlay = document.getElementById('overlay');
 
 
-    if (attemptsVar == 1) {
-      overlay.style.display = 'flex';
-      overlay.addEventListener('click', function() {
-          overlay.style.display="none";
-          setTimeout(() => {
-              initializePopups(); // Initialize and display the initial popups
-          }, 1000);
-      });
-    } else {
-      setTimeout(() => {
-          initializePopups(); // Initialize and display the initial popups
-      }, 1000);
-    }
 
     var firstPopupIndex = 0; // Start with the first popup
     var imageBasePath = 'img/'; // Base path for images
@@ -313,6 +321,63 @@ window.onload = function() {
 
 
 
+    const typewriterTexts = [
+           "welcome to the inconvenience store ",
+           "the home of everything you never wanted ",
+           "click to continue. no more help.",
+            "you have been warned "
+       ];
+
+       const typewriterContainer = document.getElementById('overlay');
+       
+
+       let index = 0;
+       let textIndex = 0;
+       let currentText = "";
+       let isDeleting = false;
+       const typingSpeed =50; // Typing speed in milliseconds
+       const deletingSpeed = 25; // Deleting speed in milliseconds
+       const delayBetweenTexts = 500; // Delay between texts in milliseconds
+
+       function type() {
+           if (index < typewriterTexts.length) {
+               const fullText = typewriterTexts[index];
+               if (isDeleting) {
+                   currentText = fullText.substring(0, textIndex - 1);
+                   textIndex--;
+                   if (textIndex == -1) {
+                       isDeleting = false;
+                       index++;
+                       setTimeout(type, delayBetweenTexts);
+                       return;
+                   }
+               } else {
+                   currentText = fullText.substring(0, textIndex + 1);
+                   textIndex++;
+                   if (currentText === fullText) {
+
+                     if (index === typewriterTexts.length - 1) {
+                        isGrowing = true;
+                        typewriterContainer.querySelectorAll('.introtext')[index].classList.add('grow');
+                    } else {                       isDeleting = true;
+                       setTimeout(type, delayBetweenTexts);
+                       return;
+                     }
+                   }
+               }
+               typewriterContainer.querySelectorAll('.introtext')[0].textContent = currentText;
+               setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
+           }
+       }
+
+       // Initialize text content for all introtext elements
+       const introtextElements = typewriterContainer.querySelectorAll('.rush');
+       introtextElements.forEach(element => {
+           element.textContent = "";
+       });
+
+       type();
+
 
 
 
@@ -347,4 +412,5 @@ window.onload = function() {
       }
     });
 
-};
+
+});
